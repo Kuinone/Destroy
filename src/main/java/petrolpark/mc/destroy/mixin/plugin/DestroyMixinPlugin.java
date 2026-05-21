@@ -6,7 +6,7 @@ public class DestroyMixinPlugin extends PetrolparkMixinPlugin {
     
     @Override
     protected String getMixinPackage() {
-        return "com.destroy.mixin";
+        return "petrolpark.mc.destroy.mixin";
     };
 
     @Override
