@@ -71,12 +71,6 @@ Several of these were upstream behaviours that only surfaced under 1.21's strict
 - Pumpjack output produced flowing fluid instead of source (Registrate `.getSource()` fix)
 - Blowpipe first-person glass rendering orientation
 
-### Known limitations
-
-- **JEI Ponder integration** — stub.
-- **Some Ponder scenes** — approximately 9–12 chemistry / pollution / processing scenes display a `"This scene is not yet implemented"` placeholder.
-- **Pre-existing javadoc warnings** — ~6 warnings remain; they do not affect the jar.
-
 ## Building
 
 ```bash
