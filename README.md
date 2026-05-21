@@ -44,6 +44,7 @@ The following are the visible additions and changes.
 - **CircuitPatternIngredient** — datapack ingredient type registered eagerly so the Colourimeter / Pollutometer / Redstone Programmer recipes load reliably (was silently dropped in early port builds).
 - **NeoForge tag namespace migration** — 21 datapack tag files migrated from the `forge:` to the `neoforge:` namespace.
 - **JEI molecule drill-down** — `ChemicalSpeciesRecipeManagerPlugin` lets you look up "which recipes consume molecule X" and "which recipes produce a Mixture containing X", powered by `MixtureFluidIngredient.getReferencedMolecules()`.
+- **Display Link → Pollutometer** — Display Links now correctly read from Pollutometers, emitting the selected pollution type's current level as a percentage or progress bar.
 
 ### Runtime bug fixes shipped during the port
 
