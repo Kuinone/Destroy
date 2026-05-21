@@ -1,0 +1,17 @@
+{
+  "type": "destroy:electrolysis",
+  "ingredients": [
+    {
+      "type": "destroy:mixture_with_ion",
+      "molecule": "destroy:nickel_ion",
+      "concentration": 0.4,
+      "amount": 25
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:nickel_powder"
+    }
+  ],
+  "processing_time": 200
+}

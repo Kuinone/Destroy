@@ -1,0 +1,20 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:tube_coral_block"
+    }
+  ],
+  "results": [
+    {
+      "count": 4,
+      "chance": 0.5,
+      "id": "destroy:chalk_dust"
+    },
+    {
+      "count": 2,
+      "id": "minecraft:blue_dye"
+    }
+  ],
+  "processing_time": 150
+}

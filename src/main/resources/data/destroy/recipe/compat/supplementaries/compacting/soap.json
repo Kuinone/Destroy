@@ -1,0 +1,29 @@
+{
+  "type": "create:compacting",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ],
+  "ingredients": [
+    {
+      "type": "destroy:mixture_with_salt",
+      "amount": 25,
+      "anion": "destroy:hydroxide",
+      "cation": "destroy:sodium_ion",
+      "concentration": 5.0
+    },
+    {
+      "fluid": "destroy:cream",
+      "amount": 250,
+      "type": "neoforge:single"
+    }
+  ],
+  "results": [
+    {
+      "id": "supplementaries:soap_block"
+    }
+  ],
+  "heat_requirement": "cooled"
+}

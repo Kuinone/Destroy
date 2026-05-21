@@ -1,0 +1,37 @@
+{
+  "conditions": [
+    {
+      "type": "petrolpark:config_boolean",
+      "mod": "destroy",
+      "value": "enableAlcohol"
+    }
+  ],
+  "parent": "destroy:aging_barrel",
+  "criteria": {
+    "drunk": {
+      "conditions": {
+        "item": {
+          "items": "#destroy:alcoholic_drink"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.destroy.drunk.description"
+    },
+    "icon": {
+      "id": "destroy:undistilled_moonshine_bottle"
+    },
+    "title": {
+      "translate": "advancement.destroy.drunk"
+    }
+  },
+  "requirements": [
+    [
+      "drunk"
+    ]
+  ]
+}

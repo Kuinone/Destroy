@@ -1,0 +1,43 @@
+{
+  "parent": "destroy:urinate",
+  "criteria": {
+    "hold_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/chromium"
+          }
+        ]
+      }
+    },
+    "hold_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:nuggets/chromium"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.destroy.chrome.description"
+    },
+    "icon": {
+      "id": "destroy:nether_crocoite"
+    },
+    "title": {
+      "translate": "advancement.destroy.chrome"
+    }
+  },
+  "requirements": [
+    [
+      "hold_ingot",
+      "hold_nugget"
+    ]
+  ]
+}

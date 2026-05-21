@@ -1,0 +1,7 @@
+{
+    "parent": "destroy:block/siphon",
+    "textures": {
+        "3": "destroy:block/siphon_side_powered",
+        "4": "destroy:block/siphon_top_powered"
+    }
+}

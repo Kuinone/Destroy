@@ -5,7 +5,33 @@
     "refmap": "destroy.refmap.json",
     "plugin": "petrolpark.mc.destroy.mixin.plugin.DestroyMixinPlugin",
     "mixins": [
-
+        "PlayerInventoryMixin",
+        "CartographyTableMenuMixin",
+        "MechanicalMixerBlockEntityMixin",
+        "VillagerMixin",
+        "accessor.BasinOperatingBlockEntityAccessor",
+        "accessor.PonderSceneRegistryAccessor",
+        "compat.create.BasinBlockEntityAddBehavioursMixin",
+        "compat.create.SpoutBlockEntityAddBehavioursMixin",
+        "compat.create.ItemDrainBlockEntityAddBehavioursMixin",
+        "compat.create.HeatLevelMixin",
+        "compat.create.HeatConditionMixin",
+        "compat.create.FluidNetworkMixin",
+        "compat.create.PipeConnectionMixin",
+        "compat.create.FluidTransportBehaviourMixin",
+        "compat.create.FluidTankBlockEntityMixin",
+        "compat.create.FluidTankMountedStorageHandlerMixin",
+        "compat.create_connected.FluidVesselBlockEntityMixin",
+        "compat.create_connected.FluidVesselMountedStorageHandlerMixin"
+    ],
+    "client": [
+        "client.CreativeModeInventoryScreenMixin",
+        "client.LevelRendererMixin",
+        "compat.jei.JeiProcessingRecipeMixin",
+        "compat.jei.CreateRecipeCategoryMixin",
+        "compat.jei.BasinCategoryMixin",
+        "compat.jei.PackingCategoryMixin",
+        "compat.jei.MixingCategoryMixin"
     ],
     "injectors": {
         "defaultRequire": 1

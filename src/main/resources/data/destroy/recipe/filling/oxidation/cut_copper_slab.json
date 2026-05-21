@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:cut_copper_slab"
+    },
+    {
+      "type": "destroy:mixture_with_molecule",
+      "amount": 5,
+      "molecule": "destroy:acetic_acid",
+      "concentration": 1.0
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:exposed_cut_copper_slab"
+    }
+  ]
+}

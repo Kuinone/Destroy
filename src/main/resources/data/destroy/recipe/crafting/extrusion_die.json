@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BDB",
+    "BFB",
+    "BDB"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:plates/brass"
+    },
+    "D": {
+      "item": "destroy:nanodiamonds"
+    },
+    "F": {
+      "item": "destroy:mesh"
+    }
+  },
+  "result": {
+    "id": "destroy:extrusion_die"
+  }
+}

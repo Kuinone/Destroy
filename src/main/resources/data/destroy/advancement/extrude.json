@@ -1,0 +1,26 @@
+{
+    "parent": "destroy:explosive",
+    "criteria": {
+      "extrude": {
+        "conditions": {},
+        "trigger": "destroy:extrude"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.extrude.description"
+      },
+      "icon": {
+        "id": "destroy:extrusion_die"
+      },
+      "title": {
+        "translate": "advancement.destroy.extrude"
+      }
+    },
+    "requirements": [
+      [
+        "extrude"
+      ]
+    ]
+  }

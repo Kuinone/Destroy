@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:storage_blocks/copper"
+  },
+  "result": {
+    "id": "destroy:copper_periodic_table_block",
+    "count": 1
+  },
+  "count": 1
+}

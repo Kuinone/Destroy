@@ -1,0 +1,97 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "destroy:ceramic_monolith"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_catalytic_converter"
+        },
+        {
+          "tag": "c:plates/stainless_steel"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_catalytic_converter"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_catalytic_converter"
+        },
+        {
+          "tag": "c:dusts/platinum"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_catalytic_converter"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_catalytic_converter"
+        },
+        {
+          "tag": "c:dusts/palladium"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_catalytic_converter"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_catalytic_converter"
+        },
+        {
+          "tag": "c:dusts/rhodium"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_catalytic_converter"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_catalytic_converter"
+        },
+        {
+          "tag": "c:plates/stainless_steel"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:catalytic_converter"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:catalytic_converter"
+    }
+  ],
+  "loops": 1,
+  "transitional_item": {
+    "id": "destroy:unfinished_catalytic_converter"
+  }
+}

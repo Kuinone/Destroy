@@ -1,0 +1,28 @@
+{
+  "type": "create:filling",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "petrolpark:config_boolean",
+        "mod": "destroy",
+        "value": "enableAlcohol"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "destroy:empty_bomb_bon"
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "c:chocolate",
+      "amount": 200
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:bomb_bon"
+    }
+  ]
+}

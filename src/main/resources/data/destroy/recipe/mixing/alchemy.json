@@ -1,0 +1,35 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "type": "neoforge:tag",
+      "tag": "c:urine",
+      "amount": 250
+    },
+    {
+      "tag": "c:ingots/lead"
+    },
+    {
+      "tag": "c:ingots/lead"
+    },
+    {
+      "tag": "c:dyes/black"
+    },
+    {
+      "tag": "c:dyes/white"
+    },
+    {
+      "tag": "c:dyes/yellow"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "id": "minecraft:gold_ingot"
+    }
+  ],
+  "heat_requirement": "heated"
+}

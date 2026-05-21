@@ -1,0 +1,17 @@
+{
+  "type": "destroy:electrolysis",
+  "ingredients": [
+    {
+      "type": "destroy:mixture_with_ion",
+      "molecule": "destroy:lead_ii",
+      "concentration": 0.4,
+      "amount": 25
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:lead_powder"
+    }
+  ],
+  "processing_time": 200
+}

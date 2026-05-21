@@ -1,0 +1,24 @@
+{
+  "values": [
+    "destroy:raw_nickel_block",
+    "destroy:chromium_block",
+    "destroy:iodine_block",
+    "destroy:nickel_block",
+    "destroy:lead_block",
+    "destroy:stainless_steel_block",
+    "destroy:carbon_fiber_block",
+    "destroy:fluorite_block",
+    "destroy:nether_crocoite_block",
+    "destroy:platinum_block",
+    "destroy:fluorite_ore",
+    "destroy:vat_controller",
+    "destroy:deepslate_fluorite_ore",
+    "destroy:end_fluorite_ore",
+    "destroy:nickel_ore",
+    "destroy:deepslate_nickel_ore",
+    "destroy:nether_crocoite_ore",
+    "destroy:palladium_block",
+    "destroy:rhodium_block",
+    "destroy:chiseled_rhodium_block"
+  ]
+}

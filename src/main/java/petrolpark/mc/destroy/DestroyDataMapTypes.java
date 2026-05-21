@@ -12,6 +12,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.datamaps.DataMapType;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
+import petrolpark.mc.destroy.core.pollution.FluidPollutionEntry;
 import petrolpark.mc.destroy.core.pollution.PollutionType;
 
 @EventBusSubscriber
@@ -45,6 +46,29 @@ public class DestroyDataMapTypes {
         ).synced(PollutionType.SpreadingProperties.CODEC, true)
         .build()
     ); 
+
+    // --- : PollutingBehaviour migration ----
+    // 1.21.1 neo 架构下 PollutionType 已成 Registry，tag 绑定改为数据驱动：
+    // 每个 PollutionType 在此 DataMap 挂一条 FluidPollutionEntry，
+    // PollutionHelper.pollute(...) 通过 holder.getData(...) 取回命中判断。
+    // 未挂条目的污染类型默认不因流体污染（等价老 enum 中 tag 未命中）。
+    public static final DataMapType<PollutionType<Level>, FluidPollutionEntry> LEVEL_POLLUTION_FLUID_TAG = register(DataMapType
+        .builder(
+            Destroy.asResource("fluid_tag"),
+            DestroyRegistries.Keys.LEVEL_POLLUTION_TYPE,
+            FluidPollutionEntry.CODEC
+        ).synced(FluidPollutionEntry.CODEC, true)
+        .build()
+    );
+
+    public static final DataMapType<PollutionType<ChunkAccess>, FluidPollutionEntry> CHUNK_POLLUTION_FLUID_TAG = register(DataMapType
+        .builder(
+            Destroy.asResource("fluid_tag"),
+            DestroyRegistries.Keys.CHUNK_POLLUTION_TYPE,
+            FluidPollutionEntry.CODEC
+        ).synced(FluidPollutionEntry.CODEC, true)
+        .build()
+    );
 
     public static final DataMapType<Block, Block> ACID_RAIN_REPLACEMENTS = register(DataMapType
         .builder(

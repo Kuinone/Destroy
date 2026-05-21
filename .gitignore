@@ -24,3 +24,19 @@ runs
 run-data
 
 repo
+
+# Working notes / scratch
+/MIGRATION/
+/scripts/
+/strip_port_comments.py
+/__pycache__/
+/*.class
+
+# Stray dumps from extracted jars at the repo root
+/META-INF/
+/assets/
+/com/
+/data/
+/net/
+/pack.png
+/flightrecorder-config.jfc

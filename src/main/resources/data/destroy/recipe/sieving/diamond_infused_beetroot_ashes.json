@@ -1,0 +1,25 @@
+{
+  "type": "destroy:sieving",
+  "ingredients": [
+    {
+      "item": "destroy:diamond_infused_beetroot_ashes"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "id": "minecraft:diamond"
+    },
+    {
+      "count": 1,
+      "chance": 0.25,
+      "id": "minecraft:diamond"
+    },
+    {
+      "count": 1,
+      "chance": 0.5,
+      "id": "destroy:beetroot_ashes"
+    }
+  ],
+  "processing_time": 12800
+}

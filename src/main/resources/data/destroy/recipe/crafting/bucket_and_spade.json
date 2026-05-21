@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PBP",
+    "PSP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "tag": "destroy:plastics/rigid"
+    },
+    "B": {
+      "tag": "c:dyes/blue"
+    },
+    "S": {
+      "item": "minecraft:wooden_shovel"
+    }
+  },
+  "result": {
+    "id": "destroy:bucket_and_spade"
+  }
+}

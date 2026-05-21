@@ -1,0 +1,14 @@
+{
+  "type": "destroy:charging",
+  "ingredients": [
+    {
+      "item": "create:cinder_flour"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:redstone"
+    }
+  ],
+  "processing_time": 200
+}

@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "TPS",
+      "PCP",
+      " P "
+    ],
+    "key": {
+      "T": {
+        "item": "minecraft:string"
+      },
+      "P": {
+        "tag": "destroy:plastics/rigid"
+      },
+      "S": {
+        "item": "destroy:silica"
+      },
+      "C": {
+        "type": "destroy:circuit_pattern_item",
+        "item": "destroy:circuit_board",
+        "pattern": "destroy:shared_hard_0"
+      }
+    },
+    "result": {
+      "id": "destroy:pollutometer"
+    }
+  }

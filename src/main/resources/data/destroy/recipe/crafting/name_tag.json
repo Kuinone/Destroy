@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPN"
+  ],
+  "key": {
+    "P": {
+      "item": "destroy:card_stock"
+    },
+    "N": {
+      "item": "destroy:nylon"
+    }
+  },
+  "result": {
+    "id": "minecraft:name_tag"
+  }
+}

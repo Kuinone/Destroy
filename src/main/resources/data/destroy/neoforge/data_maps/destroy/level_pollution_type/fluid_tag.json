@@ -1,0 +1,8 @@
+{
+  "_comment": "Level-scoped PollutionType -> fluid-tag bindings. Keys reference petrolpark.mc.destroy.DestroyPollutionTypes, values reference DestroyTags.Fluids.* via native tag ids. Data-driven: datapacks may override.",
+  "values": {
+    "destroy:greenhouse":       { "fluid_tag": "destroy:greenhouse_gas" },
+    "destroy:ozone_depletion":  { "fluid_tag": "destroy:depletes_ozone" },
+    "destroy:acid_rain":        { "fluid_tag": "destroy:acidifies_rain" }
+  }
+}

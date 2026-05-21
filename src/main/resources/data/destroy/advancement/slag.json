@@ -1,0 +1,32 @@
+{
+  "parent": "destroy:chrome",
+  "criteria": {
+    "hold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:slag"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.destroy.slag.description"
+    },
+    "icon": {
+      "id": "destroy:slag"
+    },
+    "title": {
+      "translate": "advancement.destroy.slag"
+    }
+  },
+  "requirements": [
+    [
+      "hold"
+    ]
+  ]
+}

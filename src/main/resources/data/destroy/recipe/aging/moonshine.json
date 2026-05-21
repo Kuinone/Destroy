@@ -1,0 +1,32 @@
+{
+  "type": "destroy:aging",
+  "conditions": [
+    {
+      "type": "petrolpark:config_boolean",
+      "mod": "destroy",
+      "value": "enableAlcohol"
+    }
+  ],
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "amount": 1000,
+      "type": "neoforge:single"
+    },
+    {
+      "item": "minecraft:wheat",
+      "count": 1
+    },
+    {
+      "tag": "destroy:yeast",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "id": "destroy:undistilled_moonshine"
+    }
+  ],
+  "processing_time": 9600
+}

@@ -1,0 +1,150 @@
+{
+  "parent": "destroy:explosive",
+  "criteria": {
+    "anfo": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:anfo"
+          }
+        ]
+      }
+    },
+    "cordite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:cordite"
+          }
+        ]
+      }
+    },
+    "dynamite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:dynamite"
+          }
+        ]
+      }
+    },
+    "nc": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:nitrocellulose"
+          }
+        ]
+      }
+    },
+    "tnp": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:picric_acid_tablet"
+          }
+        ]
+      }
+    },
+    "tnt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:tnt_tablet"
+          }
+        ]
+      }
+    },
+    "tatp": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:acetone_peroxide"
+          }
+        ]
+      }
+    },
+    "hg": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:fulminated_mercury"
+          }
+        ]
+      }
+    },
+    "nhn": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:nickel_hydrazine_nitrate"
+          }
+        ]
+      }
+    },
+    "tp": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:touch_powder"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.destroy.every_explosive.description"
+    },
+    "icon": {
+      "id": "destroy:cordite"
+    },
+    "frame": "challenge",
+    "title": {
+      "translate": "advancement.destroy.every_explosive"
+    }
+  },
+  "requirements": [
+    [
+      "anfo"
+    ],
+    [
+      "cordite"
+    ],
+    [
+      "dynamite"
+    ],
+    [
+      "nc"
+    ],
+    [
+      "tnp"
+    ],
+    [
+      "tnt"
+    ],
+    [
+      "tatp"
+    ],
+    [
+      "hg"
+    ],
+    [
+      "nhn"
+    ],
+    [
+      "tp"
+    ]
+  ]
+}

@@ -53,10 +53,10 @@ public abstract class Pollution<HOLDER extends IAttachmentHolder> {
     };
 
     /**
-     * @param pollutionType
-     * @param change
-     * @return Whether to sync to client
-     */
+ * @param pollutionType
+ * @param change
+ * @return Whether to sync to client
+*/
     protected boolean changePollutionUnchecked(PollutionType<HOLDER> pollutionType, int change) {
         return setPollutionUnchecked(pollutionType, values.getInt(pollutionType) + change);
     };
@@ -69,10 +69,10 @@ public abstract class Pollution<HOLDER extends IAttachmentHolder> {
     };
 
     /**
-     * @param pollutionType
-     * @param newValue
-     * @return Whether to sync to client
-     */
+ * @param pollutionType
+ * @param newValue
+ * @return Whether to sync to client
+*/
     protected boolean setPollutionUnchecked(PollutionType<HOLDER> pollutionType, int newValue) {
         final int oldValue = values.getInt(pollutionType);
         values.put(pollutionType, newValue);
@@ -91,10 +91,10 @@ public abstract class Pollution<HOLDER extends IAttachmentHolder> {
     };
 
     /**
-     * @param random
-     * @param pollutionType
-     * @return Whether we need to sync
-     */
+ * @param random
+ * @param pollutionType
+ * @return Whether we need to sync
+*/
     public boolean tickPollutionTypeUnsynced(RandomSource random, PollutionType<HOLDER> pollutionType) {
         if (getPollution(pollutionType) <= 0) return false;
         final PollutionType.Properties properties = getProperties(pollutionType);

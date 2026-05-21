@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "destroy:picric_acid_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "destroy:blocks/picric_acid_block"
+}

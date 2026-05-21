@@ -15,10 +15,10 @@ import petrolpark.mc.destroy.config.DestroyConfigs;
 @EventBusSubscriber(Dist.CLIENT)
 public class ClientPollutionEvents {
 
-    private static SmogCache SMOG_CACHE = null;
+    private static volatile SmogCache SMOG_CACHE = null;
 
     public static final int BROWN = 0xFF3F3832;
-    
+
     @SubscribeEvent
     public static void onBlendedBlockColors(BlendedBlockColorEvent event) {
         if (
@@ -28,10 +28,15 @@ public class ClientPollutionEvents {
             && event.getColorResolver() != BiomeColors.WATER_COLOR_RESOLVER
         )) return;
         final long chunkPos = new ChunkPos(event.getPos()).toLong();
-        if (SMOG_CACHE == null || SMOG_CACHE.chunkPos() != chunkPos) {
-            SMOG_CACHE = new SmogCache(chunkPos, PollutionHelper.getPollutionProportion(event.getLevel(), event.getPos(), DestroyPollutionTypes.SMOG.get()));
+        // capture into a local; this handler runs on chunk-compile worker threads and
+        // another thread (e.g. render thread via refreshSmog) can null out SMOG_CACHE between
+        // the check and the read. Also `volatile` on the field so reads observe recent writes.
+        SmogCache cache = SMOG_CACHE;
+        if (cache == null || cache.chunkPos() != chunkPos) {
+            cache = new SmogCache(chunkPos, PollutionHelper.getPollutionProportion(event.getLevel(), event.getPos(), DestroyPollutionTypes.SMOG.get()));
+            SMOG_CACHE = cache;
         };
-        event.setColor(Color.mixColors(event.getColor(), BROWN, SMOG_CACHE.smogPollutionProportion()));
+        event.setColor(Color.mixColors(event.getColor(), BROWN, cache.smogPollutionProportion()));
     };
 
     static record SmogCache(long chunkPos, float smogPollutionProportion) {};

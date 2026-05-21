@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "c:storage_blocks/lead"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "destroy:lead_ingot"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "fluid": "destroy:molten_stainless_steel",
+      "amount": 1000,
+      "type": "neoforge:single"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:molten_stainless_steel_bucket"
+    }
+  ]
+}

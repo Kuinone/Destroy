@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "destroy:mashed_potato"
+    }
+  },
+  "result": {
+    "id": "destroy:mashed_potato_block"
+  }
+}

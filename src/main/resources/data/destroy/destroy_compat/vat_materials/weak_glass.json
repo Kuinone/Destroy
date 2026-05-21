@@ -1,0 +1,26 @@
+{
+    "max_pressure_difference": 100000,
+    "conductivity": 30,
+    "transparent": true,
+    "blocks": [
+        "minecraft:glass",
+        "create:framed_glass",
+        "create:vertical_framed_glass",
+        "create:horizontal_framed_glass",
+        "create:tiled_glass",
+        "#c:glass/black",
+        "#c:glass/blue",
+        "#c:glass/brown",
+        "#c:glass/cyan",
+        "#c:glass/gray",
+        "#c:glass/green",
+        "#c:glass/light_blue",
+        "#c:glass/light_gray",
+        "#c:glass/lime",
+        "#c:glass/magenta",
+        "#c:glass/orange",
+        "#c:glass/pink",
+        "#c:glass/purple",
+        "#c:glass/red"
+    ]
+}

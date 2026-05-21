@@ -1,0 +1,85 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:paper"
+  },
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_voltaic_pile"
+        },
+        {
+          "fluid": "minecraft:water",
+          "amount": 250,
+          "type": "neoforge:single"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_voltaic_pile"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_voltaic_pile"
+        },
+        {
+          "tag": "c:plates/copper"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_voltaic_pile"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_voltaic_pile"
+        },
+        {
+          "fluid": "minecraft:water",
+          "amount": 250,
+          "type": "neoforge:single"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_voltaic_pile"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_voltaic_pile"
+        },
+        {
+          "tag": "c:plates/zinc"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_voltaic_pile"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:voltaic_pile"
+    }
+  ],
+  "loops": 3,
+  "transitional_item": {
+    "id": "destroy:unfinished_voltaic_pile"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "destroy:empty_carton"
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "c:apple_juice",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:apple_juice_carton"
+    }
+  ]
+}

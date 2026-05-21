@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SMS",
+    " P "
+  ],
+  "key": {
+    "S": {
+      "tag": "c:strings"
+    },
+    "M": {
+      "item": "destroy:mesh"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "destroy:paper_mask"
+  }
+}

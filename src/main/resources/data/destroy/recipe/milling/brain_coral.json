@@ -1,0 +1,24 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:brain_coral"
+      },
+      {
+        "item": "minecraft:brain_coral_fan"
+      }
+    ]
+  ],
+  "results": [
+    {
+      "count": 2,
+      "chance": 0.5,
+      "id": "destroy:chalk_dust"
+    },
+    {
+      "id": "minecraft:pink_dye"
+    }
+  ],
+  "processing_time": 150
+}

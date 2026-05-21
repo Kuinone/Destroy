@@ -1,0 +1,36 @@
+{
+  "type": "create:mixing",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:dusts/sulfur"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "c:dusts/sulfur"
+    }
+  ],
+  "results": [
+    {
+      "amount": 250,
+      "id": "destroy:mixture",
+      "components": {
+        "destroy:mixture": {
+          "TranslationKey": "fluid.destroy.molten_sulfur",
+          "Temperature": 388,
+          "Contents": [
+            {
+              "Molecule": "destroy:octasulfur",
+              "Concentration": 7.09217093
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "heat_requirement": "heated"
+}

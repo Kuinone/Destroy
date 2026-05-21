@@ -1,0 +1,26 @@
+{
+    "parent": "destroy:aging_barrel",
+    "criteria": {
+      "pee": {
+        "conditions": {},
+        "trigger": "destroy:urinate"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.urinate.description"
+      },
+      "icon": {
+        "id": "minecraft:cauldron"
+      },
+      "title": {
+        "translate": "advancement.destroy.urinate"
+      }
+    },
+    "requirements": [
+      [
+        "pee"
+      ]
+    ]
+  }

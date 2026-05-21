@@ -1,0 +1,14 @@
+{
+  "type": "destroy:charging",
+  "ingredients": [
+    {
+      "item": "minecraft:torch"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:redstone_torch"
+    }
+  ],
+  "processing_time": 200
+}

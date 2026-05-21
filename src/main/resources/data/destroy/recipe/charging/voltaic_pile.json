@@ -1,0 +1,14 @@
+{
+  "type": "destroy:charging",
+  "ingredients": [
+    {
+      "item": "destroy:discharged_voltaic_pile"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:voltaic_pile"
+    }
+  ],
+  "processing_time": 200
+}

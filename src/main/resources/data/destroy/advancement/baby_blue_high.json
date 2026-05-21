@@ -1,0 +1,44 @@
+{
+    "parent": "destroy:baby_blue",
+    "conditions": [
+      {
+        "type": "petrolpark:config_boolean",
+        "mod": "destroy",
+        "value": "enableBabyBlue"
+      }
+    ],
+    "criteria": {
+      "take": {
+        "conditions": {
+          "player": {
+            "location": {
+              "position": {
+                "y": {
+                  "min": 1000
+                }
+              }
+            }
+          }
+        },
+        "trigger": "destroy:take_baby_blue"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.baby_blue_high.description"
+      },
+      "icon": {
+        "id": "destroy:baby_blue_syringe"
+      },
+      "frame": "challenge",
+      "title": {
+        "translate": "advancement.destroy.baby_blue_high"
+      }
+    },
+    "requirements": [
+      [
+        "take"
+      ]
+    ]
+  }

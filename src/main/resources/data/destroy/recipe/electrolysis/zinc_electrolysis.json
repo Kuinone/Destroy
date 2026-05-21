@@ -1,0 +1,17 @@
+{
+  "type": "destroy:electrolysis",
+  "ingredients": [
+    {
+      "type": "destroy:mixture_with_ion",
+      "molecule": "destroy:zinc_ion",
+      "concentration": 0.4,
+      "amount": 25
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:zinc_powder"
+    }
+  ],
+  "processing_time": 200
+}

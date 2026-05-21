@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": "destroy:chorus_wine",
+      "amount": 250,
+      "type": "neoforge:single"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:chorus_wine_bottle"
+    }
+  ]
+}

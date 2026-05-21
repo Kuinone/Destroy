@@ -1,0 +1,32 @@
+{
+  "parent": "destroy:tap_tree",
+  "criteria": {
+    "hold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#destroy:plastics"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.destroy.plastic.description"
+    },
+    "icon": {
+      "id": "destroy:polyisoprene"
+    },
+    "title": {
+      "translate": "advancement.destroy.plastic"
+    }
+  },
+  "requirements": [
+    [
+      "hold"
+    ]
+  ]
+}

@@ -1,0 +1,27 @@
+{
+    "parent": "destroy:sand_castle",
+    "criteria": {
+      "collect": {
+        "conditions": {},
+        "trigger": "destroy:collect_tears"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.tear_bottle.description"
+      },
+      "icon": {
+        "id": "destroy:tear_bottle"
+      },
+      "frame": "goal",
+      "title": {
+        "translate": "advancement.destroy.tear_bottle"
+      }
+    },
+    "requirements": [
+      [
+        "collect"
+      ]
+    ]
+  }

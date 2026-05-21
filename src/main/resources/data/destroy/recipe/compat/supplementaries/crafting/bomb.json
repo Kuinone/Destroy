@@ -1,0 +1,28 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " IS",
+    "IEI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "E": {
+      "tag": "destroy:explosives/secondary"
+    },
+    "S": {
+      "tag": "destroy:explosives/primary"
+    }
+  },
+  "result": {
+    "id": "supplementaries:bomb"
+  }
+}

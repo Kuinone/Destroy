@@ -1,0 +1,47 @@
+{
+  "type": "create:mixing",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:and",
+        "values": [
+          {
+            "type": "neoforge:tag_empty",
+            "tag": "c:raw_materials/sulfur"
+          },
+          {
+            "type": "neoforge:tag_empty",
+            "tag": "c:dusts/sulfur"
+          }
+        ]
+      }
+    }
+  ],
+  "ingredients": [
+    [
+      {
+        "tag": "c:raw_materials/sulfur"
+      },
+      {
+        "tag": "c:dusts/sulfur"
+      }
+    ],
+    {
+      "item": "minecraft:charcoal"
+    },
+    {
+      "type": "destroy:mixture_with_salt",
+      "cation": "destroy:potassium_ion",
+      "anion": "destroy:nitrate",
+      "amount": 250,
+      "concentration": 1.0
+    }
+  ],
+  "results": [
+    {
+      "count": 4,
+      "id": "minecraft:gunpowder"
+    }
+  ]
+}

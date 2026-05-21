@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "createbigcannons"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PSP"
+  ],
+  "key": {
+    "P": {
+      "tag": "destroy:plastics/textile"
+    },
+    "S": {
+      "tag": "c:strings"
+    }
+  },
+  "result": {
+    "count": 2,
+    "id": "destroy:custom_explosive_mix_charge"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "destroy:sieving",
+  "ingredients": [
+    {
+      "item": "destroy:copper_infused_beetroot_ashes"
+    }
+  ],
+  "results": [
+    {
+      "count": 4,
+      "id": "create:crushed_raw_copper"
+    },
+    {
+      "count": 2,
+      "chance": 0.5,
+      "id": "create:crushed_raw_copper"
+    },
+    {
+      "count": 1,
+      "chance": 0.1,
+      "id": "create:crushed_raw_iron"
+    },
+    {
+      "count": 1,
+      "chance": 0.02,
+      "id": "create:crushed_raw_platinum"
+    },
+    {
+      "count": 1,
+      "chance": 0.5,
+      "id": "destroy:beetroot_ashes"
+    }
+  ],
+  "processing_time": 12800,
+  "lucky_first_time": true
+}

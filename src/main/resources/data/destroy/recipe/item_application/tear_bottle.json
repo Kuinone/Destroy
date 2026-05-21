@@ -1,0 +1,19 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "minecraft:crying_obsidian"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:obsidian"
+    },
+    {
+      "id": "destroy:tear_bottle"
+    }
+  ]
+}

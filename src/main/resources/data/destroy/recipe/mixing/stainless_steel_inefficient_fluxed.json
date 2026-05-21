@@ -1,0 +1,36 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "c:nuggets/chromium"
+    },
+    {
+      "tag": "c:nuggets/chromium"
+    },
+    {
+      "tag": "c:ingots/nickel"
+    },
+    {
+      "item": "minecraft:charcoal"
+    },
+    {
+      "tag": "c:ingots/iron"
+    },
+    {
+      "tag": "c:ingots/iron"
+    },
+    {
+      "tag": "destroy:fluxes"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "id": "destroy:stainless_steel_ingot"
+    },
+    {
+      "id": "destroy:slag"
+    }
+  ],
+  "heat_requirement": "heated"
+}

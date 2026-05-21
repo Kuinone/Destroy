@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "tag": "c:ingots/stainless_steel"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:stainless_steel_sheet"
+    }
+  ]
+}

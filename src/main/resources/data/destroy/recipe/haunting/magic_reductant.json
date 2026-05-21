@@ -1,0 +1,13 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "destroy:magic_oxidant"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:magic_reductant"
+    }
+  ]
+}

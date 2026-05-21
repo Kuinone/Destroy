@@ -1,0 +1,8 @@
+{
+  "sound_event": "destroy:music_disc_spectrum",
+  "description": {
+    "translate": "item.destroy.music_disc_spectrum.desc"
+  },
+  "length_in_seconds": 186,
+  "comparator_output": 9
+}

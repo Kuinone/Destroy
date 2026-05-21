@@ -1,0 +1,15 @@
+{
+  "type": "destroy:element_tank_filling",
+  "ingredients": [
+    {
+      "species": "destroy:nitrogen",
+      "amount": 1000,
+      "type": "destroy:mixture_pure_species"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:nitrogen_periodic_table_block"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:storage_blocks/platinum"
+  },
+  "result": {
+    "id": "destroy:platinum_periodic_table_block",
+    "count": 1
+  },
+  "count": 1
+}

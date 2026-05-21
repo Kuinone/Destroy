@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "destroy:nether_crocoite_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "destroy:nether_crocoite"
+  }
+}

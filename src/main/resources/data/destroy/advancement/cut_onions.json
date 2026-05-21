@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "parent": "destroy:tear_bottle",
+  "criteria": {
+    "cut": {
+      "conditions": {},
+      "trigger": "destroy:cut_onions"
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.destroy.cut_onions.description"
+    },
+    "icon": {
+      "id": "farmersdelight:onion"
+    },
+    "title": {
+      "translate": "advancement.destroy.cut_onions"
+    }
+  },
+  "requirements": [
+    [
+      "cut"
+    ]
+  ]
+}

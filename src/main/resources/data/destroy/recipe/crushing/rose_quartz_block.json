@@ -1,0 +1,28 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    [
+      {
+        "item": "create:rose_quartz_block"
+      },
+      {
+        "item": "create:rose_quartz_tiles"
+      },
+      {
+        "item": "create:small_rose_quartz_tiles"
+      }
+    ]
+  ],
+  "results": [
+    {
+      "count": 0.5,
+      "id": "destroy:silica"
+    },
+    {
+      "count": 2,
+      "chance": 0.5,
+      "id": "minecraft:redstone"
+    }
+  ],
+  "processing_time": 100
+}

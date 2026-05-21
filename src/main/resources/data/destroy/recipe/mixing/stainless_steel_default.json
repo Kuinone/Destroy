@@ -1,0 +1,41 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "c:dusts/chromium"
+    },
+    {
+      "tag": "c:dusts/nickel"
+    },
+    {
+      "tag": "c:dusts/nickel"
+    },
+    {
+      "item": "minecraft:charcoal"
+    },
+    {
+      "tag": "c:dusts/iron"
+    },
+    {
+      "tag": "c:dusts/iron"
+    },
+    {
+      "tag": "c:dusts/iron"
+    },
+    {
+      "tag": "c:dusts/iron"
+    },
+    {
+      "tag": "c:dusts/iron"
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "id": "destroy:molten_stainless_steel"
+    }
+  ],
+  "heat_requirement": "heated",
+  "duration": 1,
+  "__comment": "Mixing recipes do not allow you to specify an actual duration - only fast (0) or slow (any other number)"
+}

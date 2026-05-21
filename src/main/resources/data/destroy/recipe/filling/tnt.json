@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "tag": "minecraft:sand"
+    },
+    {
+      "type": "destroy:mixture_with_molecule",
+      "amount": 2,
+      "molecule": "destroy:tnt",
+      "concentration": 7.3
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:tnt_tablet"
+    }
+  ]
+}

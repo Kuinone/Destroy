@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "destroy:mashed_potato_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "destroy:mashed_potato"
+  }
+}

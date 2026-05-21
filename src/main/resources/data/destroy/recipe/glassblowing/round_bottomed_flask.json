@@ -1,0 +1,29 @@
+{
+  "type": "destroy:glassblowing",
+  "ingredients": [
+    {
+      "fluid": "destroy:molten_borosilicate_glass",
+      "amount": 250,
+      "type": "neoforge:single"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:round_bottomed_flask"
+    }
+  ],
+  "blowing_shapes": [
+    {
+      "length": 1.0,
+      "radius": 2.0
+    },
+    {
+      "length": 4.0,
+      "radius": 1.0
+    },
+    {
+      "length": 6.0,
+      "radius": 3.0
+    }
+  ]
+}

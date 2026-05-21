@@ -1,0 +1,26 @@
+{
+    "parent": "destroy:touch_powder",
+    "criteria": {
+      "use": {
+        "conditions": {},
+        "trigger": "destroy:use_seismometer"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.seismometer.description"
+      },
+      "icon": {
+        "id": "destroy:seismometer"
+      },
+      "title": {
+        "translate": "advancement.destroy.seismometer"
+      }
+    },
+    "requirements": [
+      [
+        "use"
+      ]
+    ]
+  }

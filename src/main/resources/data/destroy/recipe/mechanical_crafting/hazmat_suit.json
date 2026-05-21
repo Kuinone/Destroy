@@ -1,0 +1,26 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    " N N ",
+    "NPYPN",
+    "NPPPN",
+    "NPPPN",
+    " NNN "
+  ],
+  "key": {
+    "N": {
+      "tag": "destroy:plastics/textile"
+    },
+    "P": {
+      "tag": "destroy:plastics/inert"
+    },
+    "Y": {
+      "tag": "c:dyes/yellow"
+    }
+  },
+  "result": {
+    "id": "destroy:hazmat_suit",
+    "count": 1
+  },
+  "accept_mirrored": false
+}

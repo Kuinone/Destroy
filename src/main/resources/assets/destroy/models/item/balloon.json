@@ -1,0 +1,33 @@
+{
+    "credit": "S332 — balloon item model derived from aging_barrel balloon_4 frame (fully-inflated)",
+    "texture_size": [32, 32],
+    "textures": {
+        "0": "destroy:block/aging_barrel_balloon",
+        "particle": "destroy:block/aging_barrel_balloon"
+    },
+    "render_type": "minecraft:translucent",
+    "elements": [
+        {
+            "name": "balloon",
+            "from": [3, 2, 3],
+            "to": [13, 12, 13],
+            "faces": {
+                "north": {"uv": [0, 0, 5, 5], "texture": "#0"},
+                "east":  {"uv": [0, 0, 5, 5], "texture": "#0"},
+                "south": {"uv": [0, 0, 5, 5], "texture": "#0"},
+                "west":  {"uv": [0, 0, 5, 5], "texture": "#0"},
+                "up":    {"uv": [0, 0, 5, 5], "texture": "#0"},
+                "down":  {"uv": [0, 0, 5, 5], "texture": "#0"}
+            }
+        }
+    ],
+    "display": {
+        "thirdperson_righthand": {"rotation": [45, -135, 0], "translation": [0, 0.75, -0.25], "scale": [0.75, 0.75, 0.75]},
+        "thirdperson_lefthand":  {"rotation": [45, 135, 0],  "translation": [0, 0.75, -0.25], "scale": [0.75, 0.75, 0.75]},
+        "firstperson_righthand": {"translation": [0, 2, 0], "scale": [0.5, 0.5, 0.5]},
+        "firstperson_lefthand":  {"translation": [0, 2, 0], "scale": [0.5, 0.5, 0.5]},
+        "ground": {"translation": [0, 3, 0], "scale": [0.5, 0.5, 0.5]},
+        "gui":    {"rotation": [30, 135, 0], "translation": [0, 2, 0], "scale": [1.4, 1.4, 1.4]},
+        "fixed":  {"rotation": [0, 180, 0], "scale": [1.0, 1.0, 1.0]}
+    }
+}

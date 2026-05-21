@@ -1,0 +1,31 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "fluid": "minecraft:lava",
+      "amount": 250,
+      "type": "neoforge:single"
+    },
+    {
+      "tag": "destroy:beetroot_ashes"
+    },
+    {
+      "tag": "destroy:beetroot_ashes"
+    },
+    {
+      "tag": "destroy:beetroot_ashes"
+    },
+    {
+      "tag": "destroy:beetroot_ashes"
+    },
+    {
+      "tag": "destroy:beetroot_ashes"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:tuff"
+    }
+  ],
+  "heat_requirement": "cooled"
+}

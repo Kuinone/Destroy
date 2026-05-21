@@ -1,0 +1,26 @@
+{
+    "parent": "destroy:haber_process",
+    "criteria": {
+      "ostwald_process": {
+        "conditions": {},
+        "trigger": "destroy:ostwald_process"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.ostwald_process.description"
+      },
+      "icon": {
+        "id": "destroy:rhodium_powder"
+      },
+      "title": {
+        "translate": "advancement.destroy.ostwald_process"
+      }
+    },
+    "requirements": [
+      [
+        "ostwald_process"
+      ]
+    ]
+  }

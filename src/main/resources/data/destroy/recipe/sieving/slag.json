@@ -1,0 +1,34 @@
+{
+  "type": "destroy:sieving",
+  "ingredients": [
+    {
+      "item": "destroy:slag"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.05,
+      "id": "minecraft:flint"
+    },
+    {
+      "chance": 0.05,
+      "id": "destroy:silica"
+    },
+    {
+      "chance": 0.1,
+      "id": "minecraft:sand"
+    },
+    {
+      "chance": 0.05,
+      "id": "create:crushed_raw_zinc"
+    },
+    {
+      "chance": 0.05,
+      "id": "create:crushed_raw_nickel"
+    },
+    {
+      "chance": 0.05,
+      "id": "create:crushed_raw_lead"
+    }
+  ]
+}

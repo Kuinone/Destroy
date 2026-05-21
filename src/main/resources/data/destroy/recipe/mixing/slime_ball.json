@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "c:dusts"
+    },
+    {
+      "type": "destroy:mixture_with_molecule_tag",
+      "molecule_tag": "destroy:adhesive",
+      "amount": 1,
+      "concentration": 0.2
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:slime_ball"
+    }
+  ]
+}

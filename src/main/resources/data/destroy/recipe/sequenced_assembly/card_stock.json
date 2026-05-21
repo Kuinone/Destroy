@@ -1,0 +1,81 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:pulp"
+  },
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_card_stock"
+        },
+        {
+          "type": "destroy:mixture_with_molecule_tag",
+          "molecule_tag": "destroy:bleach",
+          "concentration": 5.0,
+          "amount": 1
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_card_stock"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_card_stock"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_card_stock"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_card_stock"
+        },
+        {
+          "item": "destroy:polystyrene_butadiene"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_card_stock"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "destroy:unfinished_card_stock"
+        },
+        {
+          "item": "destroy:chalk_dust"
+        }
+      ],
+      "results": [
+        {
+          "id": "destroy:unfinished_card_stock"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:card_stock"
+    }
+  ],
+  "loops": 1,
+  "transitional_item": {
+    "id": "destroy:unfinished_card_stock"
+  }
+}

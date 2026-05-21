@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:storage_blocks/lead"
+  },
+  "result": {
+    "id": "destroy:lead_periodic_table_block",
+    "count": 1
+  },
+  "count": 1
+}

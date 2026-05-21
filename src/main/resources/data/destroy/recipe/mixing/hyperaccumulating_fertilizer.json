@@ -1,0 +1,24 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "destroy:fertilizers"
+    },
+    {
+      "tag": "destroy:fertilizers"
+    },
+    {
+      "type": "destroy:mixture_with_salt",
+      "cation": "destroy:ammonium",
+      "anion": "destroy:nitrate",
+      "amount": 2,
+      "concentration": 3.0
+    }
+  ],
+  "results": [
+    {
+      "count": 4,
+      "id": "destroy:hyperaccumulating_fertilizer"
+    }
+  ]
+}

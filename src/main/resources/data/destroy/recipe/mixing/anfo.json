@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "type": "neoforge:tag",
+      "tag": "c:crude_oil",
+      "amount": 5
+    },
+    {
+      "type": "destroy:mixture_with_salt",
+      "amount": 5,
+      "cation": "destroy:ammonium",
+      "anion": "destroy:nitrate",
+      "concentration": 3.0
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:anfo"
+    }
+  ]
+}

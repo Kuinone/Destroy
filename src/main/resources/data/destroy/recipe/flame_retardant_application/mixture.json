@@ -1,0 +1,12 @@
+{
+  "type": "destroy:flame_retardant_application",
+  "ingredients": [
+    {
+      "type": "destroy:mixture_with_molecule_tag",
+      "amount": 1,
+      "molecule_tag": "destroy:flame_retardant",
+      "concentration": 1.0
+    }
+  ],
+  "results": []
+}

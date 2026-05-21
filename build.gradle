@@ -115,7 +115,7 @@ repositories {
         }
     }
     flatDir {
-        dirs "../petrolpark_local_maven/petrolpark/petrolpark-${minecraft_version}/${petrolpark_library_version}"
+        dirs "../../../_Migration-Toolkit-1.21/petrolpark_local_maven/petrolpark/petrolpark-${minecraft_version}/${petrolpark_library_version}"
     }
 }
 
@@ -136,6 +136,15 @@ dependencies {
     // JEI
     implementation("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 
+    // Compat-module compile-only jars — runtime users load these as normal Minecraft mods
+    // alongside Destroy; we only need the symbols at compile-time so the jars don't get bundled.
+    compileOnly(files("../../../_Migration-Toolkit-1.21/lib-1.21/createbigcannons-5.11.3+mc.1.21.1.jar"))
+    compileOnly(files("../../../_Migration-Toolkit-1.21/lib-1.21/ritchiesprojectilelib-2.1.2+mc.1.21.1-neoforge.jar"))
+
+    // Create: Connected — required for compat.create_connected.FluidVessel*Mixin source
+    // compilation. Mixin gates by mod presence at runtime via PetrolparkMixinPlugin.shouldApplyMixin
+    // so this jar isn't a runtime requirement for users without Create: Connected installed.
+    compileOnly(files("../../../_Migration-Toolkit-1.21/lib-1.21/create_connected-1.1.16-mc1.21.1.jar"))
 }
 
 jar {

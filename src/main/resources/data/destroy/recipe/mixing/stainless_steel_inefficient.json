@@ -1,0 +1,37 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "c:nuggets/chromium"
+    },
+    {
+      "tag": "c:nuggets/chromium"
+    },
+    {
+      "tag": "c:ingots/nickel"
+    },
+    {
+      "item": "minecraft:charcoal"
+    },
+    {
+      "tag": "c:ingots/iron"
+    },
+    {
+      "tag": "c:ingots/iron"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "id": "destroy:stainless_steel_ingot"
+    },
+    {
+      "count": 1,
+      "chance": 0.5,
+      "id": "destroy:stainless_steel_ingot"
+    }
+  ],
+  "heat_requirement": "heated",
+  "duration": 1,
+  "__comment": "Mixing recipes do not allow you to specify an actual duration - only fast (0) or slow (any other number)"
+}

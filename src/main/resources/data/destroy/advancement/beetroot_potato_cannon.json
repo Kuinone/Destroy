@@ -1,0 +1,26 @@
+{
+    "parent": "destroy:hyperaccumulate",
+    "criteria": {
+      "shoot": {
+        "conditions": {},
+        "trigger": "destroy:beetroot_potato_cannon"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.beetroot_potato_cannon.description"
+      },
+      "icon": {
+        "id": "destroy:hefty_beetroot"
+      },
+      "title": {
+        "translate": "advancement.destroy.beetroot_potato_cannon"
+      }
+    },
+    "requirements": [
+      [
+        "shoot"
+      ]
+    ]
+  }

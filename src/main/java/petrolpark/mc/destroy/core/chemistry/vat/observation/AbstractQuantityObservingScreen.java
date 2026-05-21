@@ -1,0 +1,151 @@
+package petrolpark.mc.destroy.core.chemistry.vat.observation;
+
+import java.util.List;
+
+import com.mojang.blaze3d.platform.InputConstants;
+import com.simibubi.create.foundation.gui.AllGuiTextures;
+import com.simibubi.create.foundation.gui.AllIcons;
+import com.simibubi.create.foundation.gui.widget.IconButton;
+
+import net.createmod.catnip.gui.AbstractSimiScreen;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.Tooltip;
+import net.minecraft.network.chat.Component;
+
+import petrolpark.mc.destroy.client.DestroyGuiTextures;
+import petrolpark.mc.destroy.client.DestroyLang;
+
+/**
+ * Abstract Vat-side redstone-monitor threshold-editing Screen. Two {@link EditBox} fields (lower
+ * + upper bound) with click-to-focus + Enter-to-blur + Enter-closes-screen behavior. Subclasses
+ * provide the background texture, editBoxY coordinate, and the {@link #updateThresholds} hook that
+ * fires a C2S packet on close.
+ *
+ * EditBox API all preserved):</p>
+*/
+public abstract class AbstractQuantityObservingScreen extends AbstractSimiScreen {
+
+    protected final RedstoneQuantityMonitorBehaviour quantityBehaviour;
+    protected final DestroyGuiTextures background;
+
+    protected EditBox lowerBound;
+    protected EditBox upperBound;
+    protected IconButton confirmButton;
+
+    protected AbstractQuantityObservingScreen(RedstoneQuantityMonitorBehaviour quantityBehaviour, Component title, DestroyGuiTextures background) {
+        super(title);
+        this.quantityBehaviour = quantityBehaviour;
+        this.background = background;
+    }
+
+    protected abstract int getEditBoxY();
+
+    protected int getTitleX() {
+        return 16;
+    }
+
+    protected abstract void updateThresholds(float lower, float upper);
+
+    @Override
+    protected void init() {
+        setWindowSize(background.width, background.height);
+        super.init();
+        clearWidgets();
+
+        confirmButton = new IconButton(guiLeft + background.width - 25, guiTop + background.height - 24, AllIcons.I_CONFIRM);
+        confirmButton.withCallback(() -> {
+            onClose();
+            if (minecraft != null && minecraft.player != null) minecraft.player.closeContainer();
+        });
+        addRenderableWidget(confirmButton);
+
+        // DON'T set `active = false`.
+        // {focused, editable} — `active` didn't gate typing. 1.21 vanilla canConsumeInput TIGHTENED
+        // to `isActive() && isFocused() && isEditable()` (bytecode-verified on
+        // client-1.21.1-srg.jar EditBox.canConsumeInput) — so active=false now BLOCKS keyboard input
+        // entirely. Result of the 1:1 port: GUI shows the boxes, mouseClicked focuses them, but
+        // typing does nothing → user reports "值还是改不了". Leave active=true (default) and rely on
+        // setFocused(false) + the screen's custom mouseClicked to control focus.
+        lowerBound = new EditBox(minecraft.font, guiLeft + 15, guiTop + getEditBoxY(), 70, 10, Component.literal("" + quantityBehaviour.upperThreshold));
+        lowerBound.setBordered(false);
+        lowerBound.setMaxLength(35);
+        lowerBound.setFocused(false);
+        lowerBound.mouseClicked(0, 0, 0);
+        lowerBound.setTooltip(Tooltip.create(DestroyLang.translate("tooltip.vat.menu.quantity_observed.minimum").component()));
+        lowerBound.setValue("" + quantityBehaviour.lowerThreshold);
+
+        upperBound = new EditBox(minecraft.font, guiLeft + 171, guiTop + getEditBoxY(), 70, 10, Component.literal("" + quantityBehaviour.lowerThreshold));
+        upperBound.setBordered(false);
+        upperBound.setMaxLength(35);
+        upperBound.setFocused(false);
+        upperBound.mouseClicked(0, 0, 0);
+        upperBound.setTooltip(Tooltip.create(DestroyLang.translate("tooltip.vat.menu.quantity_observed.maximum").component()));
+        upperBound.setValue("" + quantityBehaviour.upperThreshold);
+
+        addRenderableWidgets(lowerBound, upperBound);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        for (EditBox box : List.of(lowerBound, upperBound)) {
+            if (getFocused() != box) {
+                box.setCursorPosition(box.getValue().length());
+                box.setHighlightPos(box.getCursorPosition());
+                // TODO: validate values
+            }
+        }
+    }
+
+    @Override
+    public void onClose() {
+        lowerBound.setFocused(false);
+        upperBound.setFocused(false);
+        tick();
+
+        try {
+            updateThresholds(Float.valueOf(lowerBound.getValue()), Float.valueOf(upperBound.getValue()));
+        } catch (NumberFormatException e) {
+            // Ignore malformed thresholds
+        }
+
+        super.onClose();
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (getFocused() instanceof EditBox && (keyCode == InputConstants.KEY_RETURN || keyCode == InputConstants.KEY_NUMPADENTER)) {
+            for (EditBox box : List.of(lowerBound, upperBound)) {
+                if (box.isFocused()) {
+                    box.setFocused(false);
+                    return true;
+                }
+            }
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        for (EditBox box : List.of(lowerBound, upperBound)) {
+            if (mouseY > guiTop + getEditBoxY() - 8 && mouseY < guiTop + getEditBoxY() + 6 && mouseX > box.getX() - 4 && mouseX < box.getX() + box.getWidth() + 8 && !box.isFocused()) {
+                box.setFocused(true);
+                box.setHighlightPos(0);
+                setFocused(box);
+                return true;
+            } else {
+                box.setFocused(false);
+            }
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    protected void renderWindow(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+        background.render(graphics, guiLeft, guiTop);
+        graphics.drawString(font, title, guiLeft + getTitleX(), guiTop + 4, 0x828c97, false);
+        Component currentValue = quantityBehaviour.getLabelledQuantity();
+        graphics.drawString(font, currentValue, guiLeft + background.width / 2 - font.width(currentValue) / 2, guiTop + background.height - 18, AllGuiTextures.FONT_COLOR, false);
+    }
+}

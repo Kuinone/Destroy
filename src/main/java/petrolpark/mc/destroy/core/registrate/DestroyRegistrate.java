@@ -1,7 +1,7 @@
 package petrolpark.mc.destroy.core.registrate;
 
 import com.mojang.datafixers.util.Function3;
-import com.petrolpark.PetrolparkRegistrate;
+import com.petrolpark.AbstractPetrolparkRegistrate;
 import com.simibubi.create.foundation.gui.AllIcons;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 
@@ -12,7 +12,14 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import petrolpark.mc.destroy.DestroyRegistries;
 import petrolpark.mc.destroy.core.pollution.PollutionType;
 
-public class DestroyRegistrate extends PetrolparkRegistrate {
+/**
+ * <b>S302 (1.4.31 upgrade)</b>: 1.4.31 made {@code PetrolparkRegistrate} no-args (hardcoded to
+ * the "petrolpark" modid), so we now extend {@link AbstractPetrolparkRegistrate} directly to keep
+ * the {@code (String)} ctor path. Create-Library's own {@code Mods.DESTROY.registrate()} returns
+ * a different type {@code OtherModRegistrate} that we don't need (Destroy has its own registrate
+ * extensions below for pollution types).
+*/
+public class DestroyRegistrate extends AbstractPetrolparkRegistrate<DestroyRegistrate> {
 
     public DestroyRegistrate(String modid) {
         super(modid);

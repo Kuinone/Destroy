@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "destroy:spray_bottle"
+    },
+    {
+      "type": "destroy:mixture_with_molecule",
+      "amount": 2,
+      "molecule": "destroy:salicylic_acid",
+      "concentration": 1.0
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:sunscreen_bottle"
+    }
+  ]
+}

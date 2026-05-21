@@ -1,0 +1,176 @@
+{
+  "parent": "destroy:addition_polymer",
+  "criteria": {
+    "abs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:abs"
+          }
+        ]
+      }
+    },
+    "nylon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:nylon"
+          }
+        ]
+      }
+    },
+    "pan": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polyacrylonitrile"
+          }
+        ]
+      }
+    },
+    "polyethene": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polyethene"
+          }
+        ]
+      }
+    },
+    "polyisoprene": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polyisoprene"
+          }
+        ]
+      }
+    },
+    "pmma": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polymethyl_methacrylate"
+          }
+        ]
+      }
+    },
+    "polypropene": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polypropene"
+          }
+        ]
+      }
+    },
+    "polystyrene": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polystyrene"
+          }
+        ]
+      }
+    },
+    "ptfe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polytetrafluoroethene"
+          }
+        ]
+      }
+    },
+    "polyurethane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polyurethane"
+          }
+        ]
+      }
+    },
+    "pvc": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polyvinyl_chloride"
+          }
+        ]
+      }
+    },
+    "sbr": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "destroy:polystyrene_butadiene"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.destroy.every_plastic.description"
+    },
+    "icon": {
+      "id": "destroy:polystyrene"
+    },
+    "frame": "challenge",
+    "title": {
+      "translate": "advancement.destroy.every_plastic"
+    }
+  },
+  "requirements": [
+    [
+      "abs"
+    ],
+    [
+      "nylon"
+    ],
+    [
+      "pan"
+    ],
+    [
+      "polyethene"
+    ],
+    [
+      "polyisoprene"
+    ],
+    [
+      "pmma"
+    ],
+    [
+      "polypropene"
+    ],
+    [
+      "polystyrene"
+    ],
+    [
+      "ptfe"
+    ],
+    [
+      "polyurethane"
+    ],
+    [
+      "pvc"
+    ],
+    [
+      "sbr"
+    ]
+  ]
+}

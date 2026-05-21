@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "c:urine",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:urine_bottle"
+    }
+  ]
+}

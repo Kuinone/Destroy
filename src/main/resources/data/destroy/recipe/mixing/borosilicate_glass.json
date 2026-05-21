@@ -1,0 +1,27 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "c:dusts/silica"
+    },
+    {
+      "tag": "c:dusts/silica"
+    },
+    {
+      "tag": "c:dusts/silica"
+    },
+    {
+      "tag": "c:dusts/lime"
+    },
+    {
+      "tag": "c:raw_materials/borax"
+    }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "id": "destroy:molten_borosilicate_glass"
+    }
+  ],
+  "heat_requirement": "heated"
+}

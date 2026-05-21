@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "c:dusts/platinum"
+  },
+  "result": {
+    "id": "destroy:platinum_ingot",
+    "count": 1
+  },
+  "cookingtime": 100
+}

@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "type": "destroy:mixture_with_molecule",
+      "amount": 2,
+      "molecule": "destroy:glycerol",
+      "concentration": 1.0
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "c:chocolate",
+      "amount": 200
+    },
+    {
+      "tag": "destroy:explosives/primary"
+    },
+    {
+      "tag": "destroy:explosives/secondary"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:empty_bomb_bon"
+    }
+  ],
+  "heat_requirement": "cooled"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PSP",
+    "P P",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "tag": "destroy:plastics"
+    },
+    "S": {
+      "tag": "c:strings"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "destroy:custom_explosive_mix"
+  }
+}

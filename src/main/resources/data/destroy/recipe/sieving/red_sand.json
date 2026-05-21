@@ -1,0 +1,23 @@
+{
+  "type": "destroy:sieving",
+  "ingredients": [
+    {
+      "item": "minecraft:red_sand"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.75,
+      "id": "destroy:silica"
+    },
+    {
+      "count": 3,
+      "chance": 0.125,
+      "id": "minecraft:gold_nugget"
+    },
+    {
+      "chance": 0.05,
+      "id": "minecraft:dead_bush"
+    }
+  ]
+}

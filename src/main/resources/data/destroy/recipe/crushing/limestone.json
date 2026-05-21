@@ -1,0 +1,15 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "create:stone_types/limestone"
+    }
+  ],
+  "results": [
+    {
+      "count": 5,
+      "id": "destroy:chalk_dust"
+    }
+  ],
+  "processing_time": 150
+}

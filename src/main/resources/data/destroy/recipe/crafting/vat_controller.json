@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "PGP",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/stainless_steel"
+    },
+    "G": {
+      "item": "destroy:gas_filter"
+    }
+  },
+  "result": {
+    "id": "destroy:vat_controller"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "destroy:syringe"
+    },
+    {
+      "type": "destroy:mixture_with_molecule",
+      "amount": 1,
+      "molecule": "destroy:cisplatin",
+      "concentration": 1.0
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:cisplatin_syringe"
+    }
+  ]
+}

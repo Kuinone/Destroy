@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexscaves"
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "tag": "destroy:plastics/rigid"
+    },
+    {
+      "tag": "destroy:plastics/rigid"
+    },
+    {
+      "tag": "destroy:plastics/rigid"
+    },
+    {
+      "item": "alexscaves:toxic_paste"
+    }
+  ],
+  "results": [
+    {
+      "count": 3,
+      "id": "alexscaves:polymer_plate"
+    }
+  ]
+}

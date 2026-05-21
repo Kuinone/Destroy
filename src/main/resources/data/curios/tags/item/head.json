@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "destroy:laboratory_goggles",
+    "destroy:gold_laboratory_goggles",
+    "destroy:paper_mask",
+    "destroy:gas_mask"
+  ]
+}

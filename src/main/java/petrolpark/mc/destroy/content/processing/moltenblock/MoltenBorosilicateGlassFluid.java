@@ -1,0 +1,34 @@
+package petrolpark.mc.destroy.content.processing.moltenblock;
+
+import com.petrolpark.core.fluid.ICustomBlockStateFluid;
+import com.simibubi.create.content.fluids.VirtualFluid;
+
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.state.BlockState;
+import petrolpark.mc.destroy.DestroyBlocks;
+import petrolpark.mc.destroy.DestroyItems;
+
+public class MoltenBorosilicateGlassFluid extends VirtualFluid implements ICustomBlockStateFluid {
+
+    public MoltenBorosilicateGlassFluid(Properties properties, boolean source) {
+        super(properties, source);
+    }
+
+    public static MoltenBorosilicateGlassFluid createSource(Properties properties) {
+        return new MoltenBorosilicateGlassFluid(properties, true);
+    }
+
+    public static MoltenBorosilicateGlassFluid createFlowing(Properties properties) {
+        return new MoltenBorosilicateGlassFluid(properties, false);
+    }
+
+    @Override
+    public Item getBucket() {
+        return DestroyItems.MOLTEN_BOROSILICATE_GLASS_BUCKET.get();
+    }
+
+    @Override
+    public BlockState getBlockState() {
+        return DestroyBlocks.MOLTEN_BOROSILICATE_GLASS.getDefaultState();
+    }
+}

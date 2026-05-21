@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexscaves"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "pattern": [
+    "IsI",
+    "IPI",
+    "ISI"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:plates/iron"
+    },
+    "s": {
+      "item": "minecraft:ink_sac"
+    },
+    "P": {
+      "tag": "destroy:explosives/primary"
+    },
+    "S": {
+      "tag": "destroy:explosives/secondary"
+    }
+  },
+  "result": {
+    "count": 3,
+    "id": "alexscaves:ink_bomb"
+  }
+}

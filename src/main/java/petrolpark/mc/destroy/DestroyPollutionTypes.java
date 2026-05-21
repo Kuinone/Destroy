@@ -11,16 +11,16 @@ import petrolpark.mc.destroy.core.pollution.PollutionType;
 
 public class DestroyPollutionTypes {
 
-    public static final RegistryEntry<PollutionType<Level>, PollutionType<Level>> 
+    public static final RegistryEntry<PollutionType<Level>, PollutionType<Level>>
 
     GREENHOUSE = REGISTRATE.levelPollutionType("greenhouse", DestroyIcon.GREENHOUSE, PollutionType::new),
     OZONE_DEPLETION = REGISTRATE.levelPollutionType("ozone_depletion", DestroyIcon.OZONE_DEPLETION, PollutionType::new),
     ACID_RAIN = REGISTRATE.levelPollutionType("acid_rain", DestroyIcon.ACID_RAIN, PollutionType::new);
-    //RADIOACTIVITY = Destroy.REGISTRATE.levelPollutionType("greenhouse", DestroyIcon.RADIOACTIVITY, PollutionType::new);
 
     public static final RegistryEntry<PollutionType<ChunkAccess>, PollutionType<ChunkAccess>>
 
-    SMOG = REGISTRATE.chunkPollutionType("smog", DestroyIcon.SMOG, PollutionType::new);
+    SMOG = REGISTRATE.chunkPollutionType("smog", DestroyIcon.SMOG, PollutionType::new),
+    RADIOACTIVITY = REGISTRATE.chunkPollutionType("radioactivity", DestroyIcon.RADIOACTIVITY, PollutionType::new);
   
     public static final void register() {};
 };

@@ -30,7 +30,7 @@ public class DestroyBlockTagsProvider extends BlockTagsProvider {
             .addTag(BlockTags.FLOWERS)
             .addTag(BlockTags.LEAVES);
         
-        //TODO add leaf litter, leaf carpet, bush, firefly bush, pale moss. probably set some stuff to dry grass
+        // TODO add leaf litter, leaf carpet, bush, firefly bush, pale moss. probably set some stuff to dry grass
 
         tag(DestroyTags.Blocks.ACID_RAIN_SETS_DIRT.tag)
             .add(Blocks.GRASS_BLOCK, Blocks.MYCELIUM, Blocks.PODZOL, Blocks.ROOTED_DIRT);

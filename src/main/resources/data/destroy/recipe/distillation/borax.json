@@ -1,0 +1,77 @@
+{
+  "type": "destroy:distillation",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "amount": 1000,
+      "type": "neoforge:single"
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "id": "destroy:mixture",
+      "components": {
+        "destroy:mixture": {
+          "TranslationKey": "fluid.destroy.borax_solution",
+          "Contents": [
+            {
+              "Molecule": "destroy:boric_acid",
+              "Concentration": 0.16969298
+            },
+            {
+              "Molecule": "destroy:tetrahydroxyborate",
+              "Concentration": 0.1201766
+            },
+            {
+              "Molecule": "destroy:sodium_ion",
+              "Concentration": 0.15305416
+            },
+            {
+              "Molecule": "destroy:hydroxide",
+              "Concentration": 0.00025182628
+            },
+            {
+              "Molecule": "destroy:proton",
+              "Concentration": 0.75738716
+            },
+            {
+              "Molecule": "destroy:tetrahydroxy_tetraborate",
+              "Concentration": 0.004059694
+            },
+            {
+              "Molecule": "destroy:water",
+              "Concentration": 52.72117
+            },
+            {
+              "Molecule": "destroy:chloride",
+              "Concentration": 0.7818937
+            }
+          ]
+        }
+      }
+    },
+    {
+      "amount": 500,
+      "id": "destroy:mixture",
+      "components": {
+        "destroy:mixture": {
+          "TranslationKey": "fluid.destroy.distilled_water",
+          "Contents": [
+            {
+              "Molecule": "destroy:water",
+              "Concentration": 55.555556
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "heat_requirement": "heated",
+  "biomes": [
+    "minecraft:badlands",
+    "minecraft:eroded_badlands",
+    "minecraft:wooded_badlands",
+    "minecraft:desert"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "type": "destroy:distillation",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "amount": 1000,
+      "type": "neoforge:single"
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "id": "destroy:mixture",
+      "components": {
+        "destroy:mixture": {
+          "TranslationKey": "fluid.destroy.brine",
+          "Contents": [
+            {
+              "Molecule": "destroy:water",
+              "Concentration": 55.555556
+            },
+            {
+              "Molecule": "destroy:sodium_ion",
+              "Concentration": 1.0
+            },
+            {
+              "Molecule": "destroy:chloride",
+              "Concentration": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "amount": 500,
+      "id": "destroy:mixture",
+      "components": {
+        "destroy:mixture": {
+          "TranslationKey": "fluid.destroy.distilled_water",
+          "Contents": [
+            {
+              "Molecule": "destroy:water",
+              "Concentration": 55.555556
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "heat_requirement": "heated",
+  "biomes": [
+    "minecraft:ocean",
+    "minecraft:deep_ocean",
+    "minecraft:lukewarm_ocean",
+    "minecraft:deep_lukewarm_ocean",
+    "minecraft:cold_ocean",
+    "minecraft:deep_cold_ocean",
+    "minecraft:frozen_ocean",
+    "minecraft:deep_frozen_ocean",
+    "minecraft:warm_ocean",
+    "minecraft:beach",
+    "minecraft:snowy_beach",
+    "minecraft:stony_shore"
+  ]
+}

@@ -15,10 +15,18 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangedDimen
 import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import petrolpark.mc.destroy.DestroyAttachmentTypes;
+import petrolpark.mc.destroy.DestroyPollutionTypes;
 import petrolpark.mc.destroy.DestroyRegistries;
+import petrolpark.mc.destroy.config.DestroyConfigs;
 
 @EventBusSubscriber
 public class LevelPollution extends Pollution<Level> {
+
+    /**
+ * Baseline outdoor "room" temperature in kelvins (≈ 16°C) used by chemistry Basin/Vat reaction
+ * rate calculations. Per-Level actual outdoor temperature = this baseline + pollution deltas.
+*/
+    public static final float BASELINE_OUTDOOR_TEMPERATURE_K = 289f;
 
     public static final Serializer SERIALIZER = new Serializer();
 
@@ -47,6 +55,28 @@ public class LevelPollution extends Pollution<Level> {
     @Override
     public PollutionType.Properties getProperties(PollutionType<Level> pollutionType) {
         return PollutionHelper.getLevelPollutionTypeProperties(pollutionType);
+    };
+
+    /**
+ * Outdoor "room" temperature in kelvins for this Level, with pollution-driven deltas:
+ * <ul>
+ * <li>+0 up to +20 K from GREENHOUSE (linear in {@code get/max})</li>
+ * <li>+0 up to +4 K from OZONE_DEPLETION (linear in {@code get/max})</li>
+ * </ul>
+ * When {@code temperatureAffected} server config is off, returns the flat baseline.
+ *
+ * @see PollutionHelper#getLocalTemperature(Level, net.minecraft.core.BlockPos)
+*/
+    public float getOutdoorTemperature() {
+        if (!PollutionHelper.isPollutionEnabled()) return BASELINE_OUTDOOR_TEMPERATURE_K;
+        if (!DestroyConfigs.server().pollution.temperatureAffected.get()) return BASELINE_OUTDOOR_TEMPERATURE_K;
+
+        float delta = 0f;
+        final PollutionType<Level> greenhouse = DestroyPollutionTypes.GREENHOUSE.get();
+        final PollutionType<Level> ozone = DestroyPollutionTypes.OZONE_DEPLETION.get();
+        delta += ((float) getPollution(greenhouse) / (float) getProperties(greenhouse).max()) * 20f;
+        delta += ((float) getPollution(ozone) / (float) getProperties(ozone).max()) * 4f;
+        return BASELINE_OUTDOOR_TEMPERATURE_K + delta;
     };
 
     public static class Serializer extends Pollution.Serializer<Level, LevelPollution> {

@@ -1,0 +1,26 @@
+{
+    "parent": "destroy:plastic",
+    "criteria": {
+      "aging_barrel": {
+        "conditions": {},
+        "trigger": "destroy:open_aging_barrel"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.aging_barrel.description"
+      },
+      "icon": {
+        "id": "destroy:aging_barrel"
+      },
+      "title": {
+        "translate": "advancement.destroy.aging_barrel"
+      }
+    },
+    "requirements": [
+      [
+        "aging_barrel"
+      ]
+    ]
+  }

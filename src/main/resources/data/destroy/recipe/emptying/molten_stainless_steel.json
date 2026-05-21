@@ -1,0 +1,17 @@
+{
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "destroy:molten_stainless_steel_bucket"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:bucket"
+    },
+    {
+      "amount": 1000,
+      "id": "destroy:molten_stainless_steel"
+    }
+  ]
+}

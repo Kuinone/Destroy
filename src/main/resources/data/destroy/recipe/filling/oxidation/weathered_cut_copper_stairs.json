@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:weathered_cut_copper_stairs"
+    },
+    {
+      "type": "destroy:mixture_with_molecule",
+      "amount": 5,
+      "molecule": "destroy:acetic_acid",
+      "concentration": 1.0
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:oxidized_cut_copper_stairs"
+    }
+  ]
+}

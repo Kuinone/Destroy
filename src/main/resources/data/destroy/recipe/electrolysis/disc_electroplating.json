@@ -1,0 +1,13 @@
+{
+  "type": "destroy:disc_electroplating",
+  "ingredients": [
+    {
+      "type": "destroy:mixture_with_ion",
+      "molecule": "destroy:nickel_ion",
+      "concentration": 1,
+      "amount": 10
+    }
+  ],
+  "results": [],
+  "processing_time": 200
+}

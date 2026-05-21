@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NN"
+  ],
+  "key": {
+    "N": {
+      "item": "destroy:nylon"
+    }
+  },
+  "result": {
+    "id": "minecraft:lead"
+  }
+}

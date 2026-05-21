@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "tag": "c:crops/onion"
+    }
+  ],
+  "result": [
+    {
+      "item": "minecraft:air"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knives"
+  }
+}

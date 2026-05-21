@@ -1,0 +1,45 @@
+package petrolpark.mc.destroy.compat.jei.category;
+
+import com.petrolpark.compat.jei.category.PetrolparkRecipeCategory;
+import com.simibubi.create.foundation.gui.AllGuiTextures;
+
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
+import mezz.jei.api.helpers.IJeiHelpers;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+
+import net.minecraft.client.gui.GuiGraphics;
+
+import petrolpark.mc.destroy.DestroyBlocks;
+import petrolpark.mc.destroy.content.product.periodictable.ElementTankFillingRecipe;
+
+/**
+ * JEI category for {@link ElementTankFillingRecipe} · displays the fluid input at top, the
+ * ELEMENT_TANK catalyst item in the middle, and the resulting element-sample block as output.
+*/
+public class ElementTankFillingCategory extends PetrolparkRecipeCategory<ElementTankFillingRecipe> {
+
+    public ElementTankFillingCategory(Info<ElementTankFillingRecipe> info, IJeiHelpers helpers) {
+        super(info, helpers);
+    }
+
+    @Override
+    public void setRecipe(IRecipeLayoutBuilder builder, ElementTankFillingRecipe recipe, IFocusGroup focuses) {
+        addFluidSlot(builder, 2, 2, recipe.getRequiredFluid());
+
+        builder.addSlot(RecipeIngredientRole.INPUT, 25, 22)
+            .setBackground(getRenderedSlot(), -1, -1)
+            .addItemStack(DestroyBlocks.ELEMENT_TANK.asStack());
+
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 105, 22)
+            .setBackground(getRenderedSlot(), -1, -1)
+            .addItemStack(recipe.getRollableResultsAsItemStacks().get(0));
+    }
+
+    @Override
+    public void draw(ElementTankFillingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        AllGuiTextures.JEI_DOWN_ARROW.render(guiGraphics, 20, 5);
+        AllGuiTextures.JEI_ARROW.render(guiGraphics, 54, 25);
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "entries": [
+        {
+            "enum": "net/minecraft/world/item/ItemDisplayContext",
+            "name": "DESTROY_BLOWPIPE",
+            "constructor": "(ILjava/lang/String;Ljava/lang/String;)V",
+            "parameters": [ -1, "destroy:blowpipe", "NONE" ]
+        }
+    ]
+}

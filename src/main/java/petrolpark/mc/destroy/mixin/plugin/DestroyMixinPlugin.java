@@ -11,6 +11,6 @@ public class DestroyMixinPlugin extends PetrolparkMixinPlugin {
 
     @Override
     public void onLoad(String mixinPackage) {
-        //NOOP
+        // NOOP
     };
 };

@@ -1,0 +1,18 @@
+{
+  "values": [
+    "destroy:empty_carton",
+    "destroy:apple_juice_carton",
+    "destroy:milk_carton",
+    "destroy:undistilled_moonshine_bottle",
+    "destroy:moonshine_bottle",
+    "destroy:chorus_wine_bottle",
+    "destroy:unprocessed_napalm_sundae",
+    "destroy:empty_bomb_bon",
+    "destroy:bomb_bon",
+    "destroy:napalm_sundae",
+    "destroy:tear_bottle",
+    "destroy:urine_bottle",
+    "#destroy:syringes",
+    "#destroy:spray_bottles"
+  ]
+}

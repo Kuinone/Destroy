@@ -59,6 +59,8 @@ public class DestroyConfigs {
 		common = register(DestroyCommonConfigs::new, ModConfig.Type.COMMON);
 		server = register(DestroyServerConfigs::new, ModConfig.Type.SERVER);
 
+		DestroyAllConfigs.link(client, common, server);
+
 		for (Entry<ModConfig.Type, ConfigBase> pair : CONFIGS.entrySet()) container.registerConfig(pair.getKey(), pair.getValue().specification);
 
 		// CStress stress = server().kinetics.stressValues;

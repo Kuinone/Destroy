@@ -1,0 +1,17 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "####",
+    "####",
+    "####",
+    "####"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:rods/stainless_steel"
+    }
+  },
+  "result": {
+    "id": "destroy:stainless_steel_rods_block"
+  }
+}

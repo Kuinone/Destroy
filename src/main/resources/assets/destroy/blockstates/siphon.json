@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "powered=true": {
+            "model": "destroy:block/siphon_powered"
+        },
+        "powered=false": {
+            "model": "destroy:block/siphon"
+        }
+    }
+}

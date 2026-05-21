@@ -10,7 +10,7 @@ public class PollutionConfigs extends ConfigBase {
     public final ConfigFloat acidRainOxidationChance = f(0.2f, 0f, 1f, "acidRainOxidationChance", "Chance that a randomly ticked oxidizable Block is oxidized by Acid Rain");
     public final ConfigBool temperatureAffected = b(true, "temperatureAffected", Comments.temperatureAffected);
     public final ConfigBool ozoneDepletionGivesCancer = b(true, "ozoneDepletionGivesCancer", Comments.ozoneDepletionGivesCancer);
-    //public final ConfigBool itemCarboxylationAffected = b(true, "itemCarboxylationAffected", "Items which carboxylate like Quicklime do so faster with higher Greenhouse Gas levels");
+    // public final ConfigBool itemCarboxylationAffected = b(true, "itemCarboxylationAffected", "Items which carboxylate like Quicklime do so faster with higher Greenhouse Gas levels");
     public final ConfigBool vatUVPowerAffected = b(true, "vatUVPowerAffected", "Whether the level of Ozone Depletion increases the amount of UV power supplied to Vats by the sun");
     
     @Override

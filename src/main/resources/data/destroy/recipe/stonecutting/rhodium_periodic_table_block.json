@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:storage_blocks/rhodium"
+  },
+  "result": {
+    "id": "destroy:rhodium_periodic_table_block",
+    "count": 1
+  },
+  "count": 1
+}

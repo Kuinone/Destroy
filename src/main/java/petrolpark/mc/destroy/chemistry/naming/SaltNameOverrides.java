@@ -1,0 +1,112 @@
+package petrolpark.mc.destroy.chemistry.naming;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+
+import javax.annotation.Nullable;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
+
+import petrolpark.mc.destroy.Destroy;
+import petrolpark.mc.destroy.chemistry.legacy.LegacySpecies;
+
+/**
+ * Per-Molecule name-override table for salt names. Loaded from
+ * {@code assets/<namespace>/lang/destroy_compat/salt_name_overrides/<lang>.json} resource packs and
+ * consulted by {@link NamedSalt#getName(boolean)} when composing salt names like "sodium chloride".
+ *
+ * <ul>
+ * <li>{@code new ResourceLocation(namespace, path)} ctor is removed in 1.21 — use
+ * {@link ResourceLocation#fromNamespaceAndPath(String, String)}.</li>
+ * <li>{@code ResourceManagerReloadListener} path unchanged.</li>
+ * <li>{@code Minecraft.getInstance().getLanguageManager().getSelected()} unchanged.</li>
+ * </ul>
+*/
+public class SaltNameOverrides {
+
+    public static final Map<LegacySpecies, SaltNameOverrides> ALL_OVERRIDES = new HashMap<>();
+
+    public static final Listener RELOAD_LISTENER = new Listener();
+
+    /** The translation key of the name to be used for this Molecule when it is part of a salt.*/
+    @Nullable
+    public String genericOverrideKey;
+
+    /** The translation keys of names of salts this Molecule forms with other Molecules.*/
+    public Map<LegacySpecies, String> specificOverrideKeys;
+
+    public SaltNameOverrides() {
+        specificOverrideKeys = new HashMap<>();
+    }
+
+    private static final Gson GSON = new Gson();
+
+    public static void loadOverridesFromJson(InputStream inputStream) {
+        try {
+            JsonObject jsonObject = GSON.fromJson(new InputStreamReader(inputStream, StandardCharsets.UTF_8), JsonObject.class);
+            jsonObject.entrySet().forEach(moleculeEntry -> {
+                String moleculeId = moleculeEntry.getKey();
+                LegacySpecies molecule = LegacySpecies.getMolecule(moleculeId);
+                if (molecule == null) throw new IllegalStateException("Unknown molecule in overrides: " + moleculeId);
+
+                SaltNameOverrides overrides = ALL_OVERRIDES.get(molecule);
+                if (overrides == null) overrides = new SaltNameOverrides();
+
+                JsonObject overridesObject = moleculeEntry.getValue().getAsJsonObject();
+                if (overridesObject.has("generic")) overrides.genericOverrideKey = overridesObject.get("generic").getAsString();
+                if (overridesObject.has("specifics")) {
+                    JsonObject specificsObject = overridesObject.getAsJsonObject("specifics");
+                    for (Entry<String, JsonElement> overrideEntry : specificsObject.entrySet()) {
+                        String partnerId = overrideEntry.getKey();
+                        LegacySpecies partner = LegacySpecies.getMolecule(partnerId);
+                        if (partner == null) throw new IllegalStateException("Unknown molecule in overrides of " + moleculeId + ": " + partnerId);
+                        overrides.specificOverrideKeys.put(partner, overrideEntry.getValue().getAsString());
+                    }
+                }
+
+                ALL_OVERRIDES.put(molecule, overrides);
+            });
+        } catch (Throwable e) {
+            Destroy.LOGGER.error("Error loading salt name overrides:", e);
+        }
+    }
+
+    public static void loadOverrideFiles(ResourceManager resourceManager) {
+        Minecraft minecraft = Minecraft.getInstance();
+        ALL_OVERRIDES.clear();
+        for (String namespace : resourceManager.getNamespaces()) {
+            ResourceLocation location = ResourceLocation.fromNamespaceAndPath(namespace,
+                "lang/destroy_compat/salt_name_overrides/" + minecraft.getLanguageManager().getSelected() + ".json");
+            Optional<Resource> resource = resourceManager.getResource(location);
+            if (resource.isPresent()) {
+                try (InputStream inputStream = resource.get().open()) {
+                    loadOverridesFromJson(inputStream);
+                } catch (IOException e) {
+                    Destroy.LOGGER.error("Failed to read salt name overrides: " + location, e);
+                }
+            }
+        }
+    }
+
+    public static class Listener implements ResourceManagerReloadListener {
+
+        @Override
+        public void onResourceManagerReload(ResourceManager resourceManager) {
+            loadOverrideFiles(resourceManager);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "destroy:crushed_raw_rhodium"
+  },
+  "result": {
+    "id": "destroy:rhodium_ingot",
+    "count": 1
+  },
+  "experience": 0.1,
+  "cookingtime": 100
+}

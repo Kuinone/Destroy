@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P P",
+    "PBP"
+  ],
+  "key": {
+    "P": {
+      "tag": "destroy:plastics/rubber"
+    },
+    "B": {
+      "tag": "c:dyes/black"
+    }
+  },
+  "result": {
+    "id": "destroy:wellington_boots"
+  }
+}

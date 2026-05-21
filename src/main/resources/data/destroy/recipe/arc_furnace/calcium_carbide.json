@@ -1,0 +1,16 @@
+{
+  "type": "destroy:arc_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:charcoal"
+    },
+    {
+      "tag": "c:dusts/lime"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:calcium_carbide"
+    }
+  ]
+}

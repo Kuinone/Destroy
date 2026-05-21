@@ -1,0 +1,17 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "minecraft:disc_fragment_5"
+    },
+    {
+      "item": "minecraft:disc_fragment_5"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:blank_music_disc"
+    }
+  ],
+  "heat_requirement": "heated"
+}

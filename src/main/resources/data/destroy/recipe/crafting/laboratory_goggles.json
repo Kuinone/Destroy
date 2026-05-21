@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RTR"
+  ],
+  "key": {
+    "R": {
+      "tag": "destroy:plastics/rigid"
+    },
+    "T": {
+      "tag": "destroy:plastics/transparent"
+    }
+  },
+  "result": {
+    "id": "destroy:laboratory_goggles"
+  }
+}

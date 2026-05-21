@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "create:exposed_copper_shingle_slab"
+    },
+    {
+      "type": "destroy:mixture_with_molecule",
+      "amount": 5,
+      "molecule": "destroy:acetic_acid",
+      "concentration": 1.0
+    }
+  ],
+  "results": [
+    {
+      "id": "create:weathered_copper_shingle_slab"
+    }
+  ]
+}

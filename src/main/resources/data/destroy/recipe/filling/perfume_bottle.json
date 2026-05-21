@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "destroy:spray_bottle"
+    },
+    {
+      "fluid": "destroy:perfume",
+      "amount": 250,
+      "type": "neoforge:single"
+    }
+  ],
+  "results": [
+    {
+      "id": "destroy:perfume_bottle"
+    }
+  ]
+}

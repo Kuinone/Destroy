@@ -1,0 +1,25 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "destroy:plastics/porous"
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "c:crude_oil",
+      "amount": 250
+    },
+    {
+      "fluid": "destroy:cream",
+      "amount": 250,
+      "type": "neoforge:single"
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "id": "destroy:napalm_sundae"
+    }
+  ],
+  "heat_requirement": "cooled"
+}

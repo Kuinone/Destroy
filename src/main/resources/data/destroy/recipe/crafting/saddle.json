@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "LLL",
+    "T T"
+  ],
+  "key": {
+    "N": {
+      "tag": "destroy:plastics/textile"
+    },
+    "L": {
+      "tag": "c:leather"
+    },
+    "T": {
+      "item": "minecraft:tripwire_hook"
+    }
+  },
+  "result": {
+    "id": "minecraft:saddle"
+  }
+}

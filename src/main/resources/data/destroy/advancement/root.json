@@ -1,0 +1,30 @@
+{
+    "criteria": {
+      "automatic": {
+        "conditions": {},
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+      "announce_to_chat": false,
+      "background": "destroy:textures/block/stainless_steel_block.png",
+      "description": {
+        "color": "#DBA213",
+        "translate": "item.destroy.logo.tooltip.summary"
+      },
+      "frame": "task",
+      "hidden": false,
+      "icon": {
+        "id": "destroy:logo"
+      },
+      "show_toast": false,
+      "title": {
+        "translate": "advancement.destroy.root"
+      }
+    },
+    "requirements": [
+      [
+        "automatic"
+      ]
+    ]
+  }

@@ -32,14 +32,14 @@ import petrolpark.mc.destroy.config.DestroyConfigs;
 
 /**
  * Effects of Pollution on the world.
- */
+*/
 @EventBusSubscriber
 public class PollutionEvents {
     
     /**
-     * Lightning regenerates ozone.
-     * @param event
-     */
+ * Lightning regenerates ozone.
+ * @param event
+*/
     @SubscribeEvent
     public static final void onEntityJoinLevel(EntityJoinLevelEvent event) {
         if (event.getEntity() instanceof LightningBolt && isPollutionEnabled()) PollutionType.streamAll().forEach(pt -> 
@@ -48,9 +48,9 @@ public class PollutionEvents {
     };
 
     /**
-     * Animals may fail to breed.
-     * @param event
-     */
+ * Animals may fail to breed.
+ * @param event
+*/
     @SubscribeEvent
     public static final void onBabyEntitySpawn(BabyEntitySpawnEvent event) {
         if (isPollutionEnabled()) {
@@ -62,9 +62,9 @@ public class PollutionEvents {
     };
 
     /**
-     * Crops may fail to grow.
-     * @param event
-     */
+ * Crops may fail to grow.
+ * @param event
+*/
     @SubscribeEvent
     public static final void onCropGrowPre(CropGrowEvent.Pre event) {
         if (isPollutionEnabled() && event.getLevel() instanceof final Level level && PollutionType.streamAll().anyMatch(pt -> 
@@ -76,9 +76,9 @@ public class PollutionEvents {
     };
 
     /**
-     * Bonemeal may fail to work.
-     * @param event
-     */
+ * Bonemeal may fail to work.
+ * @param event
+*/
     @SubscribeEvent
     public static final void onBonemeal(BonemealEvent event) {
         if (!isPollutionEnabled() || event.getStack().is(DestroyTags.Items.BONEMEAL_BYPASSES_POLLUTION.tag)) return;
@@ -92,9 +92,9 @@ public class PollutionEvents {
     };
 
     /**
-     * Decrease Pollution when a tree is grown.
-     * @param event
-     */
+ * Decrease Pollution when a tree is grown.
+ * @param event
+*/
     @SubscribeEvent
     public static final void onBlockGrowFeature(BlockGrowFeatureEvent event) {
         if (event.getLevel() instanceof Level level && isPollutionEnabled() && event.getFeature().value().feature() instanceof TreeFeature) {
@@ -105,9 +105,9 @@ public class PollutionEvents {
     };
 
     /**
-     * Pollution increases Villager prices.
-     * @param event
-     */
+ * Pollution increases Villager prices.
+ * @param event
+*/
     @SubscribeEvent
     public static final void onVillagerUpdateSpecialPrices(VillagerUpdateSpecialPricesEvent event) {
         if (!isPollutionEnabled()) return;
@@ -121,9 +121,9 @@ public class PollutionEvents {
     };
 
     /**
-     * Acid Rain can destroy, oxidize or otherwise change blocks.
-     * @param event
-     */
+ * Acid Rain can destroy, oxidize or otherwise change blocks.
+ * @param event
+*/
     @SubscribeEvent
     @SuppressWarnings("deprecation")
     public static final void onHandlePrecipitation(HandlePrecipitationEvent event) {

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:ingots/stainless_steel"
+    }
+  },
+  "result": {
+    "id": "destroy:stainless_steel_block"
+  }
+}

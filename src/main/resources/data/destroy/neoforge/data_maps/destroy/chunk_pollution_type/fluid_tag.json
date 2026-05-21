@@ -1,0 +1,7 @@
+{
+  "_comment": "Chunk-scoped PollutionType -> fluid-tag bindings.",
+  "values": {
+    "destroy:smog":             { "fluid_tag": "destroy:amplifies_smog" },
+    "destroy:radioactivity":    { "fluid_tag": "destroy:radioactive"    }
+  }
+}

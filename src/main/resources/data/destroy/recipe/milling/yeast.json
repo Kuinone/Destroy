@@ -1,0 +1,15 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:brown_mushroom"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.5,
+      "id": "destroy:yeast"
+    }
+  ],
+  "processing_time": 50
+}

@@ -1,0 +1,26 @@
+{
+    "parent": "destroy:chrome",
+    "criteria": {
+      "use": {
+        "conditions": {},
+        "trigger": "destroy:siphon"
+      }
+    },
+    "display": {
+      "description": {
+        "color": "#DBA213",
+        "translate": "advancement.destroy.siphon.description"
+      },
+      "icon": {
+        "id": "destroy:siphon"
+      },
+      "title": {
+        "translate": "advancement.destroy.siphon"
+      }
+    },
+    "requirements": [
+      [
+        "use"
+      ]
+    ]
+  }
