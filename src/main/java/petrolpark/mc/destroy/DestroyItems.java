@@ -563,7 +563,9 @@ public class DestroyItems {
         .register(),
     RUINED_CIRCUIT_BOARD = REGISTRATE.item("ruined_circuit_board", Item::new)
         .register(),
-
+    NICKEL_NUGGET = REGISTRATE.item("nickel_nugget", Item::new)
+            .tag(Tags.Items.NUGGETS, PetrolparkTags.commonItemTag("nuggets/nickel"))
+            .register(),
     // MUSIC RELATED
     // 1.21.1 note: net.minecraft.world.item.RecordItem was REMOVED. Music discs are now plain
     // Items carrying the DataComponents.JUKEBOX_PLAYABLE component pointing at a JukeboxSong.
