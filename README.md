@@ -39,7 +39,7 @@ This is a edition that pursues realistic chemistry. Some changes made may differ
 
 ## Edition relationships
 
-Original(1.20.1 Forge, by Petrolpark) -> Port Edition(1.21.1 Neoforge, by NHBlock174)- > Kuinone Edition(1.21.1 Neoforge, by Kuinone)
+> Original(1.20.1 Forge, by Petrolpark) -> Port Edition(1.21.1 Neoforge, by NHBlock174)- > Kuinone Edition(1.21.1 Neoforge, by Kuinone)
 
 
 ## Building
@@ -71,4 +71,4 @@ All Rights Reserved (mirrors the upstream Destroy license).
 ---
 
 **Maintainer**: [Kuinone](https://github.com/Kuinone)  
-**Upstream**: [NHBlock174](https://github.com/NHBlock174/Destroy) -> [Petrolpark-Mods/Destroy](https://github.com/Petrolpark-Mods/Destroy) 
+**Upstream**: [NHBlock174/Destroy](https://github.com/NHBlock174/Destroy) -> [Petrolpark-Mods/Destroy](https://github.com/Petrolpark-Mods/Destroy) 
