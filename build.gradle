@@ -114,15 +114,13 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
-    flatDir {
-        dirs "../../../_Migration-Toolkit-1.21/petrolpark_local_maven/petrolpark/petrolpark-${minecraft_version}/${petrolpark_library_version}"
-    }
 }
 
 dependencies {
 
     // Library
-    implementation "com.petrolpark:petrolpark-${minecraft_version}:${petrolpark_library_version}"
+    //implementation "com.petrolpark:petrolpark-${minecraft_version}:${petrolpark_library_version}"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Registrate (bundled with Petrolpark's Library)
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
