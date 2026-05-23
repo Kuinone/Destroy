@@ -13,6 +13,14 @@
     {
       "chance": 0.75,
       "id": "minecraft:redstone"
+    },
+    {
+        "chance": 0.02,
+        "id": "destroy:crushed_raw_platinum"
+    },
+    {
+        "chance": 0.01,
+        "id": "destroy:crushed_raw_rhodium"
     }
   ]
 }
