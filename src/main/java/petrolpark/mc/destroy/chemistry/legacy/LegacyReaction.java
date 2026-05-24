@@ -23,7 +23,7 @@ import petrolpark.mc.destroy.chemistry.legacy.index.DestroyMolecules;
 /**
  * A Reaction takes place between specific {@link LegacySpecies Molecules}, and produces specific Molecules.
  * This is in contrast with {@link GenericReaction Generic Reactions}, which function as Reaction generators.
- */
+*/
 public class LegacyReaction {
 
     public static final float GAS_CONSTANT = 8.3145f;
@@ -79,10 +79,10 @@ public class LegacyReaction {
     private LegacyReaction reverseReaction;
 
     /**
-     * Get the Reaction with the given ID.
-     * @param reactionId In the format {@code <namespace>:<id>}
-     * @return {@code null} if no Reaction exists with that ID
-     */
+ * Get the Reaction with the given ID.
+ * @param reactionId In the format {@code <namespace>:<id>}
+ * @return {@code null} if no Reaction exists with that ID
+*/
     public static LegacyReaction get(String reactionId) {
         return REACTIONS.get(reactionId);
     }
@@ -270,8 +270,8 @@ public class LegacyReaction {
     }
 
     /**
-     * A class for constructing Reactions.
-     */
+ * A class for constructing Reactions.
+*/
     public static class ReactionBuilder {
 
         private String namespace;
@@ -458,46 +458,46 @@ public class LegacyReaction {
         }
 
         /**
-         * Registers an acid. Auto-registers four Reactions (association + two dissociations with water/hydroxide).
-         */
+ * Registers an acid. Auto-registers four Reactions (association + two dissociations with water/hydroxide).
+*/
         public LegacyReaction acid(LegacySpecies acid, LegacySpecies conjugateBase, float pKa) {
 
             if (conjugateBase.getCharge() + 1 != acid.getCharge()) throw e("Acids must not violate the conservation of charge.");
 
             // Dissociation with water
             LegacyReaction dissociationReaction = this
-                    .id(acid.getFullID().split(":")[1] + ".dissociation")
-                    .addReactant(acid)
-                    .addCatalyst(DestroyMolecules.WATER, 1)
-                    .addProduct(DestroyMolecules.PROTON)
-                    .addProduct(conjugateBase)
-                    .activationEnergy(GAS_CONSTANT * 0.298f)
-                    .preexponentialFactor(0.5f * (float) Math.pow(10, -pKa))
-                    .dontIncludeInJei()
-                    .build();
+                .id(acid.getFullID().split(":")[1] + ".dissociation")
+                .addReactant(acid)
+                .addCatalyst(DestroyMolecules.WATER, 1)
+                .addProduct(DestroyMolecules.PROTON)
+                .addProduct(conjugateBase)
+                .activationEnergy(GAS_CONSTANT * 0.298f)
+                .preexponentialFactor(0.5f * (float) Math.pow(10, -pKa))
+                .dontIncludeInJei()
+                .build();
 
             // Neutralization with hydroxide (temporary fix while API gets rewritten)
             new ReactionBuilder(namespace)
-                    .id(acid.getFullID().split(":")[1] + ".neutralization")
-                    .addReactant(acid)
-                    .addReactant(DestroyMolecules.HYDROXIDE)
-                    .addProduct(conjugateBase)
-                    .addProduct(DestroyMolecules.WATER)
-                    .activationEnergy(GAS_CONSTANT * 0.298f)
-                    .preexponentialFactor(0.5f * (float) Math.pow(10, -pKa))
-                    .dontIncludeInJei()
-                    .build();
+                .id(acid.getFullID().split(":")[1] + ".neutralization")
+                .addReactant(acid)
+                .addReactant(DestroyMolecules.HYDROXIDE)
+                .addProduct(conjugateBase)
+                .addProduct(DestroyMolecules.WATER)
+                .activationEnergy(GAS_CONSTANT * 0.298f)
+                .preexponentialFactor(0.5f * (float) Math.pow(10, -pKa))
+                .dontIncludeInJei()
+                .build();
 
             // Association
             new ReactionBuilder(namespace)
-                    .id(acid.getFullID().split(":")[1] + ".association")
-                    .addReactant(conjugateBase)
-                    .addReactant(DestroyMolecules.PROTON)
-                    .addProduct(acid)
-                    .activationEnergy(GAS_CONSTANT * 0.298f)
-                    .preexponentialFactor(1f)
-                    .dontIncludeInJei()
-                    .build();
+                .id(acid.getFullID().split(":")[1] + ".association")
+                .addReactant(conjugateBase)
+                .addReactant(DestroyMolecules.PROTON)
+                .addProduct(acid)
+                .activationEnergy(GAS_CONSTANT * 0.298f)
+                .preexponentialFactor(1f)
+                .dontIncludeInJei()
+                .build();
 
             return dissociationReaction;
         }
@@ -507,8 +507,8 @@ public class LegacyReaction {
         }
 
         /**
-         * Register a reverse Reaction for this Reaction.
-         */
+ * Register a reverse Reaction for this Reaction.
+*/
         public ReactionBuilder reverseReaction(Consumer<ReactionBuilder> reverseReactionModifier) {
             if (generated) throw e("Generated Reactions cannot be reversible. Add another Generic Reaction instead.");
             reaction.displayAsReversible = true;
@@ -527,8 +527,8 @@ public class LegacyReaction {
             reverseBuilder.reaction.reverseReaction = reaction;
 
             reverseBuilder
-                    .id(reaction.id + ".reverse")
-                    .dontIncludeInJei();
+                .id(reaction.id + ".reverse")
+                .dontIncludeInJei();
 
             if (hasForcedEnthalpyChange) {
                 reverseBuilder.enthalpyChange(-reaction.enthalpyChange);

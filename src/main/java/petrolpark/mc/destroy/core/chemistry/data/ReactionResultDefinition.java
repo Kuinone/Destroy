@@ -52,8 +52,8 @@ public sealed interface ReactionResultDefinition {
     ReactionResult.Factory factory();
 
     Codec<ReactionResultDefinition> CODEC = Codec.STRING.dispatch("type",
-            ReactionResultDefinition::typeName,
-            ReactionResultDefinition::codecForType);
+        ReactionResultDefinition::typeName,
+        ReactionResultDefinition::codecForType);
 
     static MapCodec<? extends ReactionResultDefinition> codecForType(String type) {
         return switch (type) {
@@ -70,9 +70,9 @@ public sealed interface ReactionResultDefinition {
     /** Drops an Item Stack of the given Item id when the reaction fires. */
     record PrecipitateItem(float moles, ResourceLocation item, int count) implements ReactionResultDefinition {
         public static final MapCodec<PrecipitateItem> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
-                Codec.FLOAT.optionalFieldOf("moles", 0f).forGetter(PrecipitateItem::moles),
-                ResourceLocation.CODEC.fieldOf("item").forGetter(PrecipitateItem::item),
-                Codec.INT.optionalFieldOf("count", 1).forGetter(PrecipitateItem::count)
+            Codec.FLOAT.optionalFieldOf("moles", 0f).forGetter(PrecipitateItem::moles),
+            ResourceLocation.CODEC.fieldOf("item").forGetter(PrecipitateItem::item),
+            Codec.INT.optionalFieldOf("count", 1).forGetter(PrecipitateItem::count)
         ).apply(i, PrecipitateItem::new));
 
         @Override public String typeName() { return "destroy:precipitate_item"; }
@@ -91,9 +91,9 @@ public sealed interface ReactionResultDefinition {
     /** Triggers a {@link SmartExplosion} on the host block (Vat or Basin) when the reaction fires. */
     record Explosion(float moles, float radius, float irregularity) implements ReactionResultDefinition {
         public static final MapCodec<Explosion> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
-                Codec.FLOAT.optionalFieldOf("moles", 0f).forGetter(Explosion::moles),
-                Codec.FLOAT.optionalFieldOf("radius", 2f).forGetter(Explosion::radius),
-                Codec.FLOAT.optionalFieldOf("irregularity", 0.5f).forGetter(Explosion::irregularity)
+            Codec.FLOAT.optionalFieldOf("moles", 0f).forGetter(Explosion::moles),
+            Codec.FLOAT.optionalFieldOf("radius", 2f).forGetter(Explosion::radius),
+            Codec.FLOAT.optionalFieldOf("irregularity", 0.5f).forGetter(Explosion::irregularity)
         ).apply(i, Explosion::new));
 
         @Override public String typeName() { return "destroy:explosion"; }
@@ -102,7 +102,7 @@ public sealed interface ReactionResultDefinition {
             float r = Math.max(0.1f, radius);
             float ir = Math.max(0f, irregularity);
             BiFunction<Level, Vec3, SmartExplosion> factory =
-                    (level, pos) -> new SmartExplosion(level, null, null, null, pos, r, ir);
+                (level, pos) -> new SmartExplosion(level, null, null, null, pos, r, ir);
             return (m, rx) -> new ExplosionReactionResult(m, rx, factory);
         }
     }
@@ -110,8 +110,8 @@ public sealed interface ReactionResultDefinition {
     /** Bundles several results so a single reaction can have multiple side-effects. */
     record Combined(float moles, List<ReactionResultDefinition> results) implements ReactionResultDefinition {
         public static final MapCodec<Combined> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
-                Codec.FLOAT.optionalFieldOf("moles", 0f).forGetter(Combined::moles),
-                Codec.list(CODEC_REF()).fieldOf("results").forGetter(Combined::results)
+            Codec.FLOAT.optionalFieldOf("moles", 0f).forGetter(Combined::moles),
+            Codec.list(CODEC_REF()).fieldOf("results").forGetter(Combined::results)
         ).apply(i, Combined::new));
 
         // Codec self-reference is awkward in static init; this helper indirects through the
@@ -136,7 +136,7 @@ public sealed interface ReactionResultDefinition {
     /** Placeholder for unknown / unsupported result types. Does nothing at runtime. */
     record NoOp(float moles) implements ReactionResultDefinition {
         public static final MapCodec<NoOp> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
-                Codec.FLOAT.optionalFieldOf("moles", 0f).forGetter(NoOp::moles)
+            Codec.FLOAT.optionalFieldOf("moles", 0f).forGetter(NoOp::moles)
         ).apply(i, NoOp::new));
 
         @Override public String typeName() { return "destroy:noop"; }

@@ -277,14 +277,45 @@ public class DestroyClientModEvents {
         petrolpark.mc.destroy.content.tool.swissarmyknife.SwissArmyKnifeItem.clientPlayerTick();
     }
 
-    /** 玩家加入专用服务器时 RecipesUpdatedEvent 触发，借此机会刷新
- * Periodic-Table Ponder 场景缓存（首次访问 JEI 不再阻塞主线程几秒生成场景）。
+    /** Player joining dedicated server triggers RecipesUpdatedEvent — use it to refresh the
+ * Periodic Table Ponder scene cache (first JEI access no longer blocks the main thread for
+ * several seconds generating scenes).
+ *
+ * <p>Also compacts the JEI molecule reverse-index ({@code MOLECULES_INPUT/OUTPUT}) by filtering
+ * out {@code Recipe<?>} instances that are no longer in the client's RecipeManager. The
+ * underlying issue is {@code JeiProcessingRecipeMixin} appending to those maps in
+ * {@code ProcessingRecipe.<init>} with no clearing mechanism — every datapack reload (and
+ * every single-player world re-entry) reconstructs every recipe → mixin appends fresh
+ * {@code Recipe<?>} instances on top of the previous reload's. Additionally, in single
+ * player the mixin fires on BOTH the integrated server's RecipeManager.apply() AND the
+ * client's RecipeManager.apply() (after the recipe-sync packet arrives), so each recipe
+ * shows up twice even on first world entry. Filtering against the client's current
+ * recipe set drops both kinds of stale duplicates.</p>
 */
     @SubscribeEvent
     public static final void onRecipesUpdated(net.neoforged.neoforge.client.event.RecipesUpdatedEvent event) {
         if (net.minecraft.client.Minecraft.getInstance().level != null) {
             petrolpark.mc.destroy.client.DestroyPonderScenes.refreshPeriodicTableBlockScenes();
         }
+        // JEI optional-dependency guard.
+        if (!com.petrolpark.compat.Mods.JEI.isLoading()) return;
+        net.minecraft.world.item.crafting.RecipeManager rm = event.getRecipeManager();
+        java.util.Set<net.minecraft.world.item.crafting.Recipe<?>> live = new java.util.HashSet<>();
+        for (net.minecraft.world.item.crafting.RecipeHolder<?> holder : rm.getRecipes()) {
+            live.add(holder.value());
+        }
+        java.util.function.BiConsumer<
+            petrolpark.mc.destroy.chemistry.legacy.LegacySpecies,
+            java.util.List<net.minecraft.world.item.crafting.Recipe<?>>> compact = (species, list) -> {
+            java.util.LinkedHashSet<net.minecraft.world.item.crafting.Recipe<?>> kept = new java.util.LinkedHashSet<>();
+            for (net.minecraft.world.item.crafting.Recipe<?> r : list) {
+                if (live.contains(r)) kept.add(r);
+            }
+            list.clear();
+            list.addAll(kept);
+        };
+        petrolpark.mc.destroy.compat.jei.DestroyJEI.MOLECULES_INPUT.forEach(compact);
+        petrolpark.mc.destroy.compat.jei.DestroyJEI.MOLECULES_OUTPUT.forEach(compact);
     }
 
     /** we inline just the hover-dispatch

@@ -82,6 +82,13 @@ public class DestroyJEI implements IModPlugin {
     /** Holds the JEI runtime once JEI finishes init · populated by {@link #onRuntimeAvailable}.*/
     public static Optional<IJeiRuntime> jeiRuntime = Optional.empty();
 
+    /** RecipeHolders that {@link #refreshDatapackReactionsClientSide} has previously pushed into
+     * JEI's runtime recipe manager. Tracked so we can {@code hideRecipes(...)} them before the
+     * next refresh adds the new set — without this, repeated server-side {@code /reload} would
+     * accumulate stale datapack reaction recipes in the JEI Reaction category in MP.*/
+    private static final java.util.List<net.minecraft.world.item.crafting.RecipeHolder<petrolpark.mc.destroy.core.chemistry.recipe.ReactionRecipe>>
+        CLIENT_DATAPACK_REACTION_HOLDERS = new java.util.ArrayList<>();
+
     // ---- S364 Mixture infrastructure (currently empty stubs; future session populates) ----
     // category, walked the recipe class hierarchy + Mixture-aware Ingredient types to record
     // (a) which RecipeType's are Mixture-applicable, (b) which Molecules each recipe consumes
@@ -511,6 +518,66 @@ public class DestroyJEI implements IModPlugin {
     @Override
     public void onRuntimeAvailable(IJeiRuntime runtime) {
         jeiRuntime = Optional.of(runtime);
+    }
+
+    /**
+     * Called from {@link petrolpark.mc.destroy.core.chemistry.data.SyncReactionsS2CPacket#handle}
+     * after the client has applied a fresh batch of datapack reactions to
+     * {@link petrolpark.mc.destroy.chemistry.legacy.LegacyReaction#REACTIONS}. Rebuilds the
+     * datapack entries in {@link petrolpark.mc.destroy.compat.jei.category.ReactionCategory#RECIPES}
+     * and pushes them into JEI's live recipe manager so the Reaction category page picks them up
+     * without a {@code /jei reload}.
+     */
+    public static void refreshDatapackReactionsClientSide() {
+        // Rebuild ReactionCategory.RECIPES — drop old datapack entries, add the current set.
+        java.util.Iterator<java.util.Map.Entry<
+                petrolpark.mc.destroy.chemistry.legacy.LegacyReaction,
+                petrolpark.mc.destroy.core.chemistry.recipe.ReactionRecipe>> it =
+            petrolpark.mc.destroy.compat.jei.category.ReactionCategory.RECIPES.entrySet().iterator();
+        while (it.hasNext()) {
+            if (it.next().getKey().isDatapack()) it.remove();
+        }
+        for (petrolpark.mc.destroy.chemistry.legacy.LegacyReaction reaction
+                : petrolpark.mc.destroy.chemistry.legacy.LegacyReaction.REACTIONS.values()) {
+            if (reaction.isDatapack() && reaction.includeInJei()) {
+                petrolpark.mc.destroy.compat.jei.category.ReactionCategory.RECIPES.put(
+                    reaction,
+                    petrolpark.mc.destroy.core.chemistry.recipe.ReactionRecipe.create(reaction));
+            }
+        }
+
+        // Push to JEI runtime if available (JEI may not have finished init yet on first join).
+        jeiRuntime.ifPresent(runtime -> {
+            mezz.jei.api.recipe.IRecipeManager rm = runtime.getRecipeManager();
+            // ReactionCategory.TYPE is declared with a wildcard upper bound; JEI's
+            // addRecipes / hideRecipes need a concrete RecipeType<T>. Cast through raw type.
+            @SuppressWarnings({"unchecked", "rawtypes"})
+            mezz.jei.api.recipe.RecipeType<net.minecraft.world.item.crafting.RecipeHolder<petrolpark.mc.destroy.core.chemistry.recipe.ReactionRecipe>>
+                reactionType = (mezz.jei.api.recipe.RecipeType)
+                    petrolpark.mc.destroy.compat.jei.category.ReactionCategory.TYPE;
+            // Hide previously-pushed datapack recipe holders so they don't persist as duplicates.
+            if (!CLIENT_DATAPACK_REACTION_HOLDERS.isEmpty()) {
+                rm.hideRecipes(reactionType, CLIENT_DATAPACK_REACTION_HOLDERS);
+                CLIENT_DATAPACK_REACTION_HOLDERS.clear();
+            }
+            // Wrap each current datapack reaction in a RecipeHolder + push it.
+            int[] counter = { 0 };
+            java.util.List<net.minecraft.world.item.crafting.RecipeHolder<petrolpark.mc.destroy.core.chemistry.recipe.ReactionRecipe>>
+                fresh = new java.util.ArrayList<>();
+            for (petrolpark.mc.destroy.chemistry.legacy.LegacyReaction reaction
+                    : petrolpark.mc.destroy.chemistry.legacy.LegacyReaction.REACTIONS.values()) {
+                if (!reaction.isDatapack() || !reaction.includeInJei()) continue;
+                petrolpark.mc.destroy.core.chemistry.recipe.ReactionRecipe recipe =
+                    petrolpark.mc.destroy.compat.jei.category.ReactionCategory.RECIPES.get(reaction);
+                if (recipe == null) continue;
+                fresh.add(new net.minecraft.world.item.crafting.RecipeHolder<>(
+                    Destroy.asResource("datapack_reaction_" + counter[0]++), recipe));
+            }
+            if (!fresh.isEmpty()) {
+                rm.addRecipes(reactionType, fresh);
+                CLIENT_DATAPACK_REACTION_HOLDERS.addAll(fresh);
+            }
+        });
     }
 
     @Override
