@@ -44,7 +44,7 @@ import petrolpark.mc.destroy.core.chemistry.MoleculeRenderer;
  * Rather each instance is a different Molecule (for example ethene might be one instance, and methanol another).</p>
  *
  * <p>Molecules should only ever be instantiated with a {@link MoleculeBuilder builder}.</p>
-*/
+ */
 public class LegacySpecies implements INameableProduct {
 
     // ID
@@ -124,14 +124,14 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * If given a:
- * <ul>
- * <li>Molecule ID (e.g. {@code destroy:ethanol}), gives the Molecule identified by that ID, or {@code null} if it does not exist.</li>
- * <li>FROWNS code (e.g. {@code destroy:linear:OCO}), generates the novel Molecule with that structure.</li>
- * </ul>
- * @param id ID or full FROWNS code.
- * @return A new Molecule instance for novel Molecules; the existing Molecule object for known ones
-*/
+     * If given a:
+     * <ul>
+     * <li>Molecule ID (e.g. {@code destroy:ethanol}), gives the Molecule identified by that ID, or {@code null} if it does not exist.</li>
+     * <li>FROWNS code (e.g. {@code destroy:linear:OCO}), generates the novel Molecule with that structure.</li>
+     * </ul>
+     * @param id ID or full FROWNS code.
+     * @return A new Molecule instance for novel Molecules; the existing Molecule object for known ones
+     */
     @Nullable
     public static LegacySpecies getMolecule(String id) {
         if (id == null || id.isEmpty()) return null;
@@ -141,8 +141,8 @@ public class LegacySpecies implements INameableProduct {
         if (molecule != null) return molecule;
         if (idComponents.length == 3) {
             return new MoleculeBuilder("novel")
-                .structure(LegacyMolecularStructure.deserialize(id))
-                .build();
+                    .structure(LegacyMolecularStructure.deserialize(id))
+                    .build();
         } else if (idComponents.length == 2) {
             return MOLECULES.get(id);
         }
@@ -151,12 +151,12 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * Get the String used for storing this Molecule in NBT.
- * <ul>
- * <li>For known Molecules, this will be of the format {@code <namespace>:<id>}.</li>
- * <li>For novel Molecules, this will be their FROWNS code.</li>
- * </ul>
-*/
+     * Get the String used for storing this Molecule in NBT.
+     * <ul>
+     * <li>For known Molecules, this will be of the format {@code <namespace>:<id>}.</li>
+     * <li>For novel Molecules, this will be their FROWNS code.</li>
+     * </ul>
+     */
     public String getFullID() {
         if (id == null) {
             return structure.serialize();
@@ -166,8 +166,8 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * Checks all known Molecules for those which have the same structure as this one.
-*/
+     * Checks all known Molecules for those which have the same structure as this one.
+     */
     public LegacySpecies getEquivalent() {
         for (LegacySpecies molecule : MOLECULES.values()) {
             if (Math.abs(getMass() - molecule.getMass()) < 0.001) {
@@ -275,9 +275,9 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * Gives all Atoms in this Molecule, and their quantities, in the format {@code AaBbCc...}.
- * @param subscript If {@code true}, Unicode subscript numbers will be used rather than ASCII numbers
-*/
+     * Gives all Atoms in this Molecule, and their quantities, in the format {@code AaBbCc...}.
+     * @param subscript If {@code true}, Unicode subscript numbers will be used rather than ASCII numbers
+     */
     public String getSerlializedMolecularFormula(boolean subscript) {
         Map<LegacyElement, Integer> formulaMap = getMolecularFormula();
         List<LegacyElement> elements = new ArrayList<>(formulaMap.keySet());
@@ -297,10 +297,10 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * A convenience method for getting the stability of a carbon in this structure.
- * @param carbon Can be any Atom, but the approximation is best for carbon
- * @param isCarbanion Whether this calculation should be inverted
-*/
+     * A convenience method for getting the stability of a carbon in this structure.
+     * @param carbon Can be any Atom, but the approximation is best for carbon
+     * @param isCarbanion Whether this calculation should be inverted
+     */
     public Float getCarbocationStability(LegacyAtom carbon, boolean isCarbanion) {
         return structure.getCarbocationStability(carbon, isCarbanion);
     }
@@ -315,6 +315,16 @@ public class LegacySpecies implements INameableProduct {
         if (reaction.containsProduct(this)) productReactions.add(reaction);
     }
 
+    /** Remove the given Reaction from this Molecule's reactant index (datapack reload cleanup).*/
+    public void removeReactantReaction(LegacyReaction reaction) {
+        reactantReactions.remove(reaction);
+    }
+
+    /** Remove the given Reaction from this Molecule's product index (datapack reload cleanup).*/
+    public void removeProductReaction(LegacyReaction reaction) {
+        productReactions.remove(reaction);
+    }
+
     /** Get the list of Reactions of which this Molecule is a necessary Reactant.*/
     public List<LegacyReaction> getReactantReactions() {
         return this.reactantReactions;
@@ -326,9 +336,9 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * Get the display name of this Molecule.
- * @param iupac Whether to use the IUPAC systematic name rather than the common one
-*/
+     * Get the display name of this Molecule.
+     * @param iupac Whether to use the IUPAC systematic name rather than the common one
+     */
     @Override
     public Component getName(boolean iupac) {
         if (isNovel()) return Component.literal(getSerlializedMolecularFormula(true));
@@ -356,9 +366,9 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * Get a String representing the charge of this Molecule.
- * @param alwaysShowNumber If true, a Molecule with charge -1 will return {@code 1-} instead of {@code -}, etc.
-*/
+     * Get a String representing the charge of this Molecule.
+     * @param alwaysShowNumber If true, a Molecule with charge -1 will return {@code 1-} instead of {@code -}, etc.
+     */
     public String getSerializedCharge(boolean alwaysShowNumber) {
         StringBuilder chargeString = new StringBuilder();
         if (charge == 0) return chargeString.toString();
@@ -380,9 +390,9 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * Get the list of Atoms (and their locations relative to the starting Atom) of all Atoms
- * in the base Topology of this Molecule.
-*/
+     * Get the list of Atoms (and their locations relative to the starting Atom) of all Atoms
+     * in the base Topology of this Molecule.
+     */
     public List<Pair<Vec3, LegacyAtom>> getCyclicAtomsForRendering() {
         if (!isCyclic()) return List.of();
         return structure.getCyclicAtomsForRendering();
@@ -409,8 +419,8 @@ public class LegacySpecies implements INameableProduct {
     }
 
     /**
- * A class for constructing Molecules. Use {@code build()} to get the Molecule.
-*/
+     * A class for constructing Molecules. Use {@code build()} to get the Molecule.
+     */
     public static class MoleculeBuilder {
 
         private LegacySpecies molecule;
@@ -424,9 +434,9 @@ public class LegacySpecies implements INameableProduct {
         private String translationKey;
 
         /**
- * @param nameSpace The name space for Molecules constructed with this builder
- * @throws IllegalArgumentException If a forbidden name space is used, e.g. {@code novel}.
-*/
+         * @param nameSpace The name space for Molecules constructed with this builder
+         * @throws IllegalArgumentException If a forbidden name space is used, e.g. {@code novel}.
+         */
         public MoleculeBuilder(String nameSpace) {
             molecule = new LegacySpecies(nameSpace);
             if (FORBIDDEN_NAMESPACES.contains(nameSpace)) {
@@ -438,9 +448,9 @@ public class LegacySpecies implements INameableProduct {
         }
 
         /**
- * The internal ID for this Molecule. Must be unique.
- * If a Molecule is declared without an ID it will not be added to the Molecule register.
-*/
+         * The internal ID for this Molecule. Must be unique.
+         * If a Molecule is declared without an ID it will not be added to the Molecule register.
+         */
         public MoleculeBuilder id(String id) {
             molecule.id = id;
             translationKey(id);
@@ -529,13 +539,13 @@ public class LegacySpecies implements INameableProduct {
         }
 
         /**
- * Builds the Molecule. This will also:
- * <ul>
- * <li>Estimate the boiling point and dipole moment if they were not supplied.</li>
- * <li>Check existing Molecules to see if a Molecule with the same structure already exists.</li>
- * <li>Use all known functional Group Finders to identify functional Groups in the Molecule.</li>
- * </ul>
-*/
+         * Builds the Molecule. This will also:
+         * <ul>
+         * <li>Estimate the boiling point and dipole moment if they were not supplied.</li>
+         * <li>Check existing Molecules to see if a Molecule with the same structure already exists.</li>
+         * <li>Use all known functional Group Finders to identify functional Groups in the Molecule.</li>
+         * </ul>
+         */
         public LegacySpecies build() {
 
             molecule.mass = calculateMass();
@@ -613,21 +623,21 @@ public class LegacySpecies implements INameableProduct {
             for (LegacyFunctionalGroup<?> group : molecule.getFunctionalGroups()) {
                 LegacyFunctionalGroupType<?> type = group.getType();
                 if (type == DestroyGroupTypes.ALCOHOL
-                    || type == DestroyGroupTypes.NON_TERTIARY_AMINE
-                    || type == DestroyGroupTypes.CARBOXYLIC_ACID
-                    || type == DestroyGroupTypes.UNSUBSTITUTED_AMIDE) hydrogenBondingGroups++;
+                        || type == DestroyGroupTypes.NON_TERTIARY_AMINE
+                        || type == DestroyGroupTypes.CARBOXYLIC_ACID
+                        || type == DestroyGroupTypes.UNSUBSTITUTED_AMIDE) hydrogenBondingGroups++;
                 if (type == DestroyGroupTypes.CARBONYL
-                    || type == DestroyGroupTypes.CARBOXYLIC_ACID
-                    || type == DestroyGroupTypes.UNSUBSTITUTED_AMIDE) carbonyls++;
+                        || type == DestroyGroupTypes.CARBOXYLIC_ACID
+                        || type == DestroyGroupTypes.UNSUBSTITUTED_AMIDE) carbonyls++;
                 if (type == DestroyGroupTypes.HALIDE) halogens++;
                 if (type == DestroyGroupTypes.NITRILE) nitriles++;
             }
             return 2.04259892128141f * molecule.getMass()
-                + 34.3262117819044f * hydrogenBondingGroups
-                + 13.0899856936379f * carbonyls
-                - 44.7792748741156f * halogens
-                + 63.981050928271f * nitriles
-                + 178.176866128713f;
+                    + 34.3262117819044f * hydrogenBondingGroups
+                    + 13.0899856936379f * carbonyls
+                    - 44.7792748741156f * halogens
+                    + 63.981050928271f * nitriles
+                    + 178.176866128713f;
         }
 
         /** Very loosely estimate the dipole moment of a molecule.*/
